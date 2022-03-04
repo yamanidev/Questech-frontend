@@ -1,0 +1,7 @@
+.form-group {
+	@apply my-3;
+}
+
+.form-input {
+	@apply w-full h-14 px-5 block text-[#333333] rounded-lg bg-[#f7f7f7] focus:outline-0 focus:border-0;
+}
