@@ -32,15 +32,11 @@ function LoginForm() {
 							<input type="password" id="password" className="form-input" />
 						</div>
 					</div>
-					<button className="w-full py-4 text-white rounded-lg bg-[#333333]">
-						Sign in
-					</button>
-				</div>
-				<div className="mt-10 text-center text-sm text-[#999999]">
-					<span>Not a member?</span>
-					<a href="#" className="ml-1 hover:text-[#555555] underline">
-						Sign up now
-					</a>
+					<div className="mt-10 ">
+						<button className="w-full py-4 text-white rounded-lg bg-[#333333]">
+							Sign in
+						</button>
+					</div>
 				</div>
 			</form>
 		</div>
