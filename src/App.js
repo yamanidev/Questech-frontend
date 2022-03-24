@@ -1,12 +1,7 @@
-import "./App.css";
-import LoginForm from "./components/LoginForm/LoginForm";
+import LoginPage from "./pages/login/LoginPage";
 
 function App() {
-	return (
-		<div className="App">
-			<LoginForm></LoginForm>
-		</div>
-	);
+	return <LoginPage></LoginPage>;
 }
 
 export default App;
