@@ -8,10 +8,10 @@ function LoginForm() {
 			<form className="mt-11">
 				<div className="my-3">
 					<div className="mb-2">
-						<label htmlFor="username">Username</label>
+						<label htmlFor="email">Email</label>
 					</div>
 					<div>
-						<input type="text" id="username" className="form-input" />
+						<input type="text" id="email" className="form-input" />
 					</div>
 				</div>
 				<div className="my-3">
