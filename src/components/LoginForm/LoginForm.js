@@ -1,13 +1,23 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import authService from "../../services/auth/auth-service";
 import "./LoginForm.css";
 
 function LoginForm() {
+	const navigate = useNavigate();
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 
 	const loginHandler = (event) => {
 		event.preventDefault();
-		console.log(`email: "${email}", password: "${password}"`);
+		authService
+			.login(email, password)
+			.then(() => {
+				navigate("/profile");
+			})
+			.catch(() => {
+				console.log("Login failed");
+			});
 	};
 
 	return (
