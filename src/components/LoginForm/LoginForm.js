@@ -36,6 +36,7 @@ function LoginForm() {
 							type="text"
 							id="email"
 							className="form-input"
+							required
 						/>
 					</div>
 				</div>
@@ -56,6 +57,7 @@ function LoginForm() {
 							type="password"
 							id="password"
 							className="form-input"
+							required
 						/>
 					</div>
 				</div>
