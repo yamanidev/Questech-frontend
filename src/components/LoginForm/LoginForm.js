@@ -33,7 +33,7 @@ function LoginForm() {
 							onChange={(event) => {
 								setEmail(event.target.value);
 							}}
-							type="text"
+							type="email"
 							id="email"
 							className="form-input"
 							required
