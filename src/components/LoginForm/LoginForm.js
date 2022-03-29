@@ -7,6 +7,7 @@ function LoginForm() {
 	const navigate = useNavigate();
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
+	const [error, setError] = useState("");
 
 	const loginHandler = (event) => {
 		event.preventDefault();
@@ -16,7 +17,7 @@ function LoginForm() {
 				navigate("/profile");
 			})
 			.catch(() => {
-				console.log("Login failed");
+				setError("Incorrect email or password");
 			});
 	};
 
@@ -24,6 +25,13 @@ function LoginForm() {
 		<div className="max-w-[680px] w-full mx-auto mt-20 px-10 sm:px-28 py-10 sm:rounded-xl bg-white">
 			<h2 className="text-4xl text-center text-[#555555]">Sign in</h2>
 			<form onSubmit={loginHandler} className="mt-11">
+				{error ? (
+					<p
+						className="mb-5 px-8 py-3 text-center font-bold text-red-400 border border-[#fcc2c3] bg-[#fce4e4]
+                    ">
+						{error}
+					</p>
+				) : null}
 				<div className="my-3">
 					<div className="mb-2">
 						<label htmlFor="email">Email</label>
@@ -32,10 +40,12 @@ function LoginForm() {
 						<input
 							onChange={(event) => {
 								setEmail(event.target.value);
+								setError("");
 							}}
-							type="text"
+							type="email"
 							id="email"
 							className="form-input"
+							required
 						/>
 					</div>
 				</div>
@@ -52,10 +62,12 @@ function LoginForm() {
 						<input
 							onChange={(event) => {
 								setPassword(event.target.value);
+								setError("");
 							}}
 							type="password"
 							id="password"
 							className="form-input"
+							required
 						/>
 					</div>
 				</div>
