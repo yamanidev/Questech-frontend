@@ -20,7 +20,11 @@ module.exports = {
 				"Noto Color Emoji",
 			],
 		},
-		extend: {},
+		extend: {
+			colors: {
+				"primary-blue": "#304FFE",
+			},
+		},
 	},
 	plugins: [],
 };
