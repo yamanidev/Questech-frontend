@@ -8,9 +8,9 @@ function HomePage() {
 			<header>
 				<div className="container">
 					<nav className="py-3">
-						<a href="#" className="text-xl font-black text-primary-blue">
+						<Link to="/" className="text-xl font-black text-primary-blue">
 							Logo
-						</a>
+						</Link>
 					</nav>
 				</div>
 			</header>
