@@ -16,8 +16,14 @@ function LoginForm() {
 			.then(() => {
 				navigate("/profile");
 			})
-			.catch(() => {
-				setError("Incorrect email or password");
+			.catch((error) => {
+				if (error.response) {
+					// Request was made and server responded
+					setError("Incorrect email or password");
+				} else {
+					// Server did not respond
+					setError("Network error. Check the connection to the server");
+				}
 			});
 	};
 
