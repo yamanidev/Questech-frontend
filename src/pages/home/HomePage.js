@@ -1,7 +1,8 @@
 import React from "react";
-import "./home.css";
+import { Link } from "react-router-dom";
+import "./homePage.css";
 
-function Home() {
+function HomePage() {
 	return (
 		<>
 			<header>
@@ -17,11 +18,11 @@ function Home() {
 				<section className="py-48 relative z-0 text-white bg-primary-blue">
 					<div className="container">
 						<h1 className="mb-8 text-4xl font-black">ESI-SBA Elearn</h1>
-						<a
-							href="#"
+						<Link
+							to="login"
 							className="py-1 px-5 font-bold text-primary-blue bg-white rounded-3xl">
 							Login
-						</a>
+						</Link>
 					</div>
 				</section>
 				<section className="relative -top-32 z-10 py-10 text-2xl text-primary-blue font-bold">
@@ -71,4 +72,4 @@ function Home() {
 	);
 }
 
-export default Home;
+export default HomePage;
