@@ -17,6 +17,10 @@ class AuthService {
 			});
 	}
 
+	logout() {
+		localStorage.removeItem("jwtToken");
+	}
+
 	// Return true on success, and undefined on failure
 	verifyJwt(jwtToken) {
 		return axios
