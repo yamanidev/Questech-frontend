@@ -44,7 +44,7 @@ function ProfilePage() {
 			<main>
 				<section className="pt-16">
 					<div className="container">
-						<div className="flex items-center gap-10">
+						<div className="flex flex-col sm:flex-row items-center gap-10 text-center sm:text-left">
 							<div className="border border-primary-blue rounded-full w-36 h-36"></div>
 							<div>
 								<h1 className="text-4xl font-black">John Doe</h1>
