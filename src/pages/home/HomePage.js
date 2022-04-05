@@ -5,7 +5,7 @@ import "./homePage.css";
 function HomePage() {
 	return (
 		<>
-			<header>
+			<header className="border border-[#707070]">
 				<div className="container">
 					<nav className="py-3">
 						<Link to="/" className="text-xl font-black text-primary-blue">
