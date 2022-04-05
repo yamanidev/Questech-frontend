@@ -1,9 +1,16 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import svg from "../../assets/notification-bell.svg";
+import authService from "../../services/auth/auth-service";
 
 function ProfilePage() {
+	const navigate = useNavigate();
 	const [isProfileOpen, setIsProfileOpen] = useState(false);
+
+	const logOutHandler = () => {
+		authService.logout();
+		navigate("/");
+	};
 
 	return (
 		<>
@@ -22,13 +29,12 @@ function ProfilePage() {
 								className="w-14 h-14 border border-primary-blue rounded-full cursor-pointer"
 								onClick={() => {
 									setIsProfileOpen(!isProfileOpen);
-								}}
-								onBlur={() => {
-									if (isProfileOpen) setIsProfileOpen(false);
 								}}></button>
 							{isProfileOpen && (
 								<div className="w-max px-2 absolute top-[4.2rem] right-0 bg-gray-100">
-									<button className="py-3">Log out</button>
+									<button className="py-3" onClick={logOutHandler}>
+										Log out
+									</button>
 								</div>
 							)}
 						</div>
