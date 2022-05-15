@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import svg from "../../assets/notification-bell.svg";
 import authService from "../../services/auth/auth-service";
-import { MdLogout } from "react-icons/md";
+import LogoutIcon from "@mui/icons-material/Logout";
 
 function ProfilePage() {
 	const navigate = useNavigate();
@@ -52,7 +52,7 @@ function ProfilePage() {
 									<button
 										className="py-3 px-4 flex items-center hover:bg-gray-100"
 										onClick={logOutHandler}>
-										Log out <MdLogout className="ml-1" />
+										Log out <LogoutIcon className="ml-1" />
 									</button>
 								</div>
 							)}
