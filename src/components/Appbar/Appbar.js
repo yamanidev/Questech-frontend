@@ -1,15 +1,13 @@
 import AccountCircle from "@mui/icons-material/AccountCircle";
-import IconButton from "@mui/material/IconButton";
-import Menu from "@mui/material/Menu";
-import MenuItem from "@mui/material/MenuItem";
-import Toolbar from "@mui/material/Toolbar";
-import AppBar from "@mui/material/AppBar";
-import Typography from "@mui/material/Typography";
 import LogoutIcon from "@mui/icons-material/Logout";
-import React, { useState } from "react";
 import Settings from "@mui/icons-material/Settings";
-import authService from "../../services/auth/auth-service";
+import AppBar from "@mui/material/AppBar";
+import IconButton from "@mui/material/IconButton";
+import Toolbar from "@mui/material/Toolbar";
+import Typography from "@mui/material/Typography";
+import React from "react";
 import { Link, useNavigate } from "react-router-dom";
+import authService from "../../services/auth/auth-service";
 
 function Appbar() {
 	const navigate = useNavigate();
