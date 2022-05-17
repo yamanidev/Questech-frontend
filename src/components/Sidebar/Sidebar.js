@@ -36,6 +36,7 @@ function Sidebar() {
 	const theme = useTheme();
 
 	function toggleDrawerOpen() {
+		if (usersOpen) setUsersOpen(false);
 		setDrawerOpen(!drawerOpen);
 	}
 
