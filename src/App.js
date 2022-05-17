@@ -8,6 +8,7 @@ import HomePage from "./pages/home/HomePage";
 import LoginPage from "./pages/login/LoginPage";
 import NoMatchPage from "./pages/noMatch/NoMatchPage";
 import ProfilePage from "./pages/profile/ProfilePage";
+import SettingsPage from "./pages/settings/SettingsPage";
 
 function App() {
 	return (
@@ -23,6 +24,7 @@ function App() {
 				<Route path="/profile" element={<ProfilePage />} />
 				<Route path="/teachers" element={<TeachersPage />}></Route>
 				<Route path="/students" element={<StudentsPage />}></Route>
+				<Route path="/settings" element={<SettingsPage />} />
 			</Route>
 			<Route path="*" element={<NoMatchPage />} />
 		</Routes>

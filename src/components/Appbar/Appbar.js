@@ -17,7 +17,7 @@ function Appbar() {
 	};
 
 	const handleSettings = () => {
-		console.log("settings clicked");
+		navigate("/settings");
 	};
 
 	const handleLogOut = () => {
