@@ -40,7 +40,6 @@ function Sidebar() {
 	}
 
 	function toggleUsersOpen() {
-		console.log("users toggled");
 		setUsersOpen(!usersOpen);
 	}
 
