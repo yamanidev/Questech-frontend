@@ -13,12 +13,14 @@ class AuthService {
 			})
 			.then((response) => {
 				localStorage.setItem("jwtToken", response.data.jwtToken);
+				localStorage.setItem("user", response.data.user);
 				return response.data;
 			});
 	}
 
 	logout() {
 		localStorage.removeItem("jwtToken");
+		localStorage.removeItem("user");
 	}
 
 	// Return true on success, and undefined on failure
