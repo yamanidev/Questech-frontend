@@ -10,7 +10,9 @@ function Layout() {
 			<Appbar />
 			<Box sx={{ display: "flex" }}>
 				<Sidebar />
-				<Outlet />
+				<div className="pt-20 flex-grow">
+					<Outlet />
+				</div>
 			</Box>
 		</>
 	);
