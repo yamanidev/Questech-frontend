@@ -41,7 +41,7 @@ function Sidebar() {
 
 	function toggleUsersOpen() {
 		// Opens drawer first
-		setDrawerOpen(!drawerOpen);
+		if (!drawerOpen) setDrawerOpen(true);
 		setUsersOpen(!usersOpen);
 	}
 
