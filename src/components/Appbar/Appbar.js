@@ -26,7 +26,7 @@ function Appbar() {
 	};
 
 	return (
-		<AppBar position="static" sx={{ backgroundColor: "#304FFE" }}>
+		<AppBar position="fixed" sx={{ backgroundColor: "#304FFE" }}>
 			<Toolbar className="container">
 				<Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
 					<Link to="/">Logo</Link>
