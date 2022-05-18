@@ -13,7 +13,7 @@ class AuthService {
 			})
 			.then((response) => {
 				localStorage.setItem("jwtToken", response.data.jwtToken);
-				localStorage.setItem("user", response.data.user);
+				localStorage.setItem("user", JSON.stringify(response.data.user));
 				return response.data;
 			});
 	}
