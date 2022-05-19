@@ -28,7 +28,7 @@ function TeachersTable() {
 
 	const fetchTeachers = () => {
 		axios
-			.get("http://localhost:8080/admin/user", {
+			.get("http://localhost:8080/admin/user/professor", {
 				headers: {
 					Authorization: `Bearer ${token}`,
 				},
@@ -38,9 +38,6 @@ function TeachersTable() {
 					teacher.role = teacher.role.toLowerCase();
 					return teacher;
 				});
-				// Temporary, removes admin from teachers list
-				// Admin should not be present in the response
-				data.shift();
 				setTeachers(data);
 			});
 	};
