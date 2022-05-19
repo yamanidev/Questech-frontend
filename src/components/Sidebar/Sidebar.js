@@ -20,7 +20,7 @@ import { useTheme } from "@mui/material/styles";
 import Tooltip from "@mui/material/Tooltip";
 import Typography from "@mui/material/Typography";
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function Sidebar() {
 	const drawerWidthOpen = 300;
@@ -32,7 +32,6 @@ function Sidebar() {
 	const [drawerOpen, setDrawerOpen] = useState(false);
 	const [usersOpen, setUsersOpen] = useState(false);
 
-	const navigate = useNavigate();
 	const theme = useTheme();
 
 	function toggleDrawerOpen() {
@@ -46,33 +45,24 @@ function Sidebar() {
 		setUsersOpen(!usersOpen);
 	}
 
-	function handleStudents() {
-		navigate("/students");
-	}
-
-	function handleTeachers() {
-		navigate("/teachers");
-	}
-
 	const navList = [
 		{
 			icon: DashboardOutlined,
 			desc: "Dashboard",
-			secondDesc: "",
+			route: "/dashboard",
 			badge: 0,
 			subList: [],
 		},
 		{
 			icon: Person,
 			desc: "Users",
-			secondDesc: "",
 			badge: 0,
 			subList: [],
 		},
 		{
 			icon: Forum,
 			desc: "Forum",
-			secondDesc: "Message from andi",
+			route: "/profile",
 			badge: 0,
 			subList: [
 				{
@@ -88,21 +78,21 @@ function Sidebar() {
 		{
 			icon: Analytics,
 			desc: "Analytics",
-			secondDesc: "",
+			route: "/profile",
 			badge: 0,
 			subList: [],
 		},
 		{
 			icon: FolderOpen,
 			desc: "Folder",
-			secondDesc: "",
+			route: "/profile",
 			badge: 0,
 			subList: [],
 		},
 		{
 			icon: BorderColor,
 			desc: "Edit",
-			secondDesc: "",
+			route: "/profile",
 			badge: 0,
 			subList: [],
 		},
@@ -155,115 +145,24 @@ function Sidebar() {
 
 			<List dense={true}>
 				{navList.map((key, index) => (
-					<>
-						<Tooltip
-							title={!drawerOpen ? key.desc : ""}
-							placement={"right"}
-							componentsProps={{
-								tooltip: {
-									sx: {
-										backgroundColor: "gray",
-										color: "white",
-										marginLeft: "22px !important",
-										boxShadow: "0px 0px 22px -2px rgba(0,0,0,0.20)",
-									},
+					<Tooltip
+						key={index}
+						title={!drawerOpen ? key.desc : ""}
+						placement={"right"}
+						componentsProps={{
+							tooltip: {
+								sx: {
+									backgroundColor: "gray",
+									color: "white",
+									marginLeft: "22px !important",
+									boxShadow: "0px 0px 22px -2px rgba(0,0,0,0.20)",
 								},
-							}}>
-							{index === 1 ? (
-								<>
-									<ListItemButton
-										onClick={toggleUsersOpen}
-										sx={{
-											margin: "6px 14px",
-											padding: "10px",
-											borderRadius: "8px",
-											"&:hover": {
-												backgroundColor: "#2A3574",
-											},
-										}}>
-										<ListItemIcon sx={{ minWidth: "46px" }}>
-											<Badge badgeContent={key.badge} color="secondary" variant="dot">
-												<key.icon sx={{ fontSize: "20px", color: "lightgray" }} />
-											</Badge>
-										</ListItemIcon>
-
-										<ListItemText
-											primary={key.desc}
-											primaryTypographyProps={{
-												variant: "body2",
-											}}
-											sx={{
-												display: "inline",
-												margin: "0px",
-												overflowX: "hidden",
-												color: "white",
-												whiteSpace: "nowrap",
-												minWidth: "126px",
-											}}
-										/>
-										{usersOpen ? (
-											<ExpandLess sx={{ color: "lightgray" }} />
-										) : (
-											<ExpandMore sx={{ color: "lightgray" }} />
-										)}
-									</ListItemButton>
-									<Collapse in={usersOpen} timeout="auto" unmountOnExit>
-										<List component="div" disablePadding>
-											<ListItemButton
-												onClick={handleTeachers}
-												sx={{
-													margin: "6px 14px",
-													pl: 9,
-													borderRadius: "8px",
-													"&:hover": {
-														backgroundColor: "#2A3574",
-													},
-												}}>
-												<ListItemText
-													primary="Teachers"
-													primaryTypographyProps={{
-														variant: "body2",
-													}}
-													sx={{
-														display: "inline",
-														margin: "0px",
-														overflowX: "hidden",
-														color: "white",
-														whiteSpace: "nowrap",
-														minWidth: "126px",
-													}}
-												/>
-											</ListItemButton>
-											<ListItemButton
-												onClick={handleStudents}
-												sx={{
-													margin: "6px 14px",
-													pl: 9,
-													borderRadius: "8px",
-													"&:hover": {
-														backgroundColor: "#2A3574",
-													},
-												}}>
-												<ListItemText
-													primary="Students"
-													primaryTypographyProps={{
-														variant: "body2",
-													}}
-													sx={{
-														display: "inline",
-														margin: "0px",
-														overflowX: "hidden",
-														color: "white",
-														whiteSpace: "nowrap",
-														minWidth: "126px",
-													}}
-												/>
-											</ListItemButton>
-										</List>
-									</Collapse>
-								</>
-							) : (
+							},
+						}}>
+						{index === 1 ? (
+							<>
 								<ListItemButton
+									onClick={toggleUsersOpen}
 									sx={{
 										margin: "6px 14px",
 										padding: "10px",
@@ -292,10 +191,104 @@ function Sidebar() {
 											minWidth: "126px",
 										}}
 									/>
+									{usersOpen ? (
+										<ExpandLess sx={{ color: "lightgray" }} />
+									) : (
+										<ExpandMore sx={{ color: "lightgray" }} />
+									)}
 								</ListItemButton>
-							)}
-						</Tooltip>
-					</>
+								<Collapse in={usersOpen} timeout="auto" unmountOnExit>
+									<List component="div" disablePadding>
+										<ListItemButton
+											component={Link}
+											to="/teachers"
+											sx={{
+												margin: "6px 14px",
+												pl: 9,
+												borderRadius: "8px",
+												"&:hover": {
+													backgroundColor: "#2A3574",
+												},
+											}}>
+											<ListItemText
+												primary="Teachers"
+												primaryTypographyProps={{
+													variant: "body2",
+												}}
+												sx={{
+													display: "inline",
+													margin: "0px",
+													overflowX: "hidden",
+													color: "white",
+													whiteSpace: "nowrap",
+													minWidth: "126px",
+												}}
+											/>
+										</ListItemButton>
+										<ListItemButton
+											component={Link}
+											to="/students"
+											sx={{
+												margin: "6px 14px",
+												pl: 9,
+												borderRadius: "8px",
+												"&:hover": {
+													backgroundColor: "#2A3574",
+												},
+											}}>
+											<ListItemText
+												primary="Students"
+												primaryTypographyProps={{
+													variant: "body2",
+												}}
+												sx={{
+													display: "inline",
+													margin: "0px",
+													overflowX: "hidden",
+													color: "white",
+													whiteSpace: "nowrap",
+													minWidth: "126px",
+												}}
+											/>
+										</ListItemButton>
+									</List>
+								</Collapse>
+							</>
+						) : (
+							<ListItemButton
+								component={Link}
+								to={key.route}
+								sx={{
+									margin: "6px 14px",
+									padding: "10px",
+									borderRadius: "8px",
+									"&:hover": {
+										backgroundColor: "#2A3574",
+									},
+								}}>
+								<ListItemIcon sx={{ minWidth: "46px" }}>
+									<Badge badgeContent={key.badge} color="secondary" variant="dot">
+										<key.icon sx={{ fontSize: "20px", color: "lightgray" }} />
+									</Badge>
+								</ListItemIcon>
+
+								<ListItemText
+									primary={key.desc}
+									primaryTypographyProps={{
+										variant: "body2",
+									}}
+									sx={{
+										display: "inline",
+										margin: "0px",
+										overflowX: "hidden",
+										color: "white",
+										whiteSpace: "nowrap",
+										minWidth: "126px",
+									}}
+								/>
+							</ListItemButton>
+						)}
+					</Tooltip>
 				))}
 			</List>
 		</>
