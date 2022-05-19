@@ -3,11 +3,12 @@ import { Route, Routes } from "react-router-dom";
 import Layout from "./components/Layout/Layout";
 import RequireAuth from "./components/RequireAuth/RequireAuth";
 import StudentsPage from "./pages/admin/users/students/StudentsPage";
-import TeachersPage from "./pages/admin/users/teachers/TeachersPage";
+import AddTeacherPage from "./pages/admin/users/teachers/AddTeacherPage";
 import EditTeacherPage from "./pages/admin/users/teachers/EditTeacherPage";
+import TeachersPage from "./pages/admin/users/teachers/TeachersPage";
+import DashboardPage from "./pages/dashboard/DashboardPage";
 import HomePage from "./pages/home/HomePage";
 import LoginPage from "./pages/login/LoginPage";
-import DashboardPage from "./pages/dashboard/DashboardPage";
 import NoMatchPage from "./pages/noMatch/NoMatchPage";
 import ProfilePage from "./pages/profile/ProfilePage";
 import SettingsPage from "./pages/settings/SettingsPage";
@@ -27,6 +28,7 @@ function App() {
 				<Route path="/profile" element={<ProfilePage />} />
 				<Route path="/teachers" element={<TeachersPage />}></Route>
 				<Route path="/teacher/:teacherId/edit" element={<EditTeacherPage />} />
+				<Route path="/teacher/new" element={<AddTeacherPage />} />
 				<Route path="/students" element={<StudentsPage />}></Route>
 				<Route path="/settings" element={<SettingsPage />} />
 			</Route>
