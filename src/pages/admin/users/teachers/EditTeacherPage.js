@@ -1,6 +1,6 @@
 import React from "react";
 
-function SettingsPage() {
+function EditTeacherPage() {
 	return (
 		<div className="container">
 			<h1 className="mb-10 text-6xl font-semibold">Edit Teacher</h1>
@@ -8,4 +8,4 @@ function SettingsPage() {
 	);
 }
 
-export default SettingsPage;
+export default EditTeacherPage;
