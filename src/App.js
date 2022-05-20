@@ -2,6 +2,7 @@ import React from "react";
 import { Route, Routes } from "react-router-dom";
 import Layout from "./components/Layout/Layout";
 import RequireAuth from "./components/RequireAuth/RequireAuth";
+import RequireRole from "./components/RequireRole/RequireRole";
 import StudentsPage from "./pages/admin/users/students/StudentsPage";
 import AddTeacherPage from "./pages/admin/users/teachers/AddTeacherPage";
 import EditTeacherPage from "./pages/admin/users/teachers/EditTeacherPage";
@@ -12,7 +13,6 @@ import LoginPage from "./pages/login/LoginPage";
 import NoMatchPage from "./pages/noMatch/NoMatchPage";
 import ProfilePage from "./pages/profile/ProfilePage";
 import SettingsPage from "./pages/settings/SettingsPage";
-import userService from "./services/user/user-service";
 
 function App() {
 	return (
@@ -27,20 +27,18 @@ function App() {
 				}>
 				<Route path="/dashboard" element={<DashboardPage />} />
 				<Route path="/profile" element={<ProfilePage />} />
-				{/* Routes for ADMIN */}
-				{userService.getUser().role === "ADMIN" && (
-					<>
-						<Route path="/teachers" element={<TeachersPage />}></Route>
-						<Route path="/teacher/:teacherId/edit" element={<EditTeacherPage />} />
-						<Route path="/teacher/new" element={<AddTeacherPage />} />
-						<Route path="/students" element={<StudentsPage />}></Route>
-						<Route path="/settings" element={<SettingsPage />} />
-					</>
-				)}
-				{/* Routes for PROFESSOR */}
-				{userService.getUser().role === "PROFESSOR" && <></>}
-				{/* Routes for STUDENT */}
-				{userService.getUser().role === "STUDENT" && <></>}
+				{/* Routes for the Administrator */}
+				<Route element={<RequireRole role="ADMIN" />}>
+					<Route path="/teachers" element={<TeachersPage />} />
+					<Route path="/teacher/:teacherId/edit" element={<EditTeacherPage />} />
+					<Route path="/teacher/new" element={<AddTeacherPage />} />
+					<Route path="/students" element={<StudentsPage />} />
+					<Route path="/settings" element={<SettingsPage />} />
+				</Route>
+				{/* Routes for the Professor */}
+				<Route element={<RequireRole role="PROFESSOR" />}></Route>
+				{/* Routes for the Student */}
+				<Route element={<RequireRole role="STUDENT" />}></Route>
 			</Route>
 			<Route path="*" element={<NoMatchPage />} />
 		</Routes>
