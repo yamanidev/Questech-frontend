@@ -6,13 +6,15 @@ import { DesktopDatePicker } from "@mui/x-date-pickers/DesktopDatePicker";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import React, { useCallback, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import axios from "axios";
+import adminServices from "../../../../services/admin/admin-services";
+import { formatDate } from "../../../../utilities/date-utils";
 import { validateEmail, validateName } from "../../../../utilities/input-validation";
 
 function AddTeacherPage() {
 	const [datePickerDate, setDatePickerDate] = useState(Date.now());
 	const [firstName, setFirstName] = useState("");
 	const [lastName, setLastName] = useState("");
+	const [email, setEmail] = useState("");
 	const [placeOfBirth, setPlaceOfBirth] = useState("");
 	// Must follow the format YY-DD-MM
 	const [dateOfBirth, setDateOfBirth] = useState(
@@ -22,7 +24,6 @@ function AddTeacherPage() {
 			new Date(datePickerDate).getFullYear()
 		)
 	);
-	const [email, setEmail] = useState("");
 	const [errors, setErrors] = useState({
 		firstNameError: false,
 		lastNameError: false,
@@ -38,12 +39,6 @@ function AddTeacherPage() {
 		);
 		setDatePickerDate(newValue);
 	};
-
-	function formatDate(day, month, year) {
-		const formattedDay = ("0" + day).slice(-2);
-		const formattedMonth = ("0" + month).slice(-2);
-		return `${year}-${formattedDay}-${formattedMonth}`;
-	}
 
 	function getFields() {
 		return {
@@ -65,26 +60,14 @@ function AddTeacherPage() {
 	}
 
 	const addTeacher = useCallback((teacher) => () => {
-		const token = localStorage.getItem("jwtToken");
-		axios
-			.post(
-				"http://localhost:8080/admin/user?role=PROFESSOR",
-				{
-					firstname: firstName,
-					familyname: lastName,
-					birthDate: dateOfBirth,
-					placeBirth: placeOfBirth,
-					email,
-				},
-				{
-					headers: {
-						Authorization: `Bearer ${token}`,
-					},
-				}
-			)
+		adminServices
+			.addTeacher(teacher)
 			.then((response) => {
 				console.log(response);
 				navigate("/teachers");
+			})
+			.catch((error) => {
+				console.log(error);
 			});
 	});
 

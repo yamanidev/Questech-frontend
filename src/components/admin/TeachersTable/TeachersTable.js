@@ -1,14 +1,15 @@
 import { Edit } from "@mui/icons-material";
 import DeleteIcon from "@mui/icons-material/Delete";
-import { Typography, Button, Stack } from "@mui/material";
+import { Button, Stack, Typography } from "@mui/material";
 import Modal from "@mui/material/Modal";
 import { DataGrid, GridActionsCellItem } from "@mui/x-data-grid";
 import axios from "axios";
 import React, { useCallback, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import adminServices from "../../../services/admin/admin-services";
+import LoadingSpinner from "../../LoadingSpinner/LoadingSpinner";
 import "./teachers-table.css";
 import TeachersToolbar from "./TeachersToolbar";
-import LoadingSpinner from "../../LoadingSpinner/LoadingSpinner";
 
 function TeachersTable() {
 	const [teachers, setTeachers] = useState([]);
@@ -29,36 +30,34 @@ function TeachersTable() {
 	}, []);
 
 	const fetchTeachers = () => {
-		axios
-			.get("http://localhost:8080/admin/user/professor", {
-				headers: {
-					Authorization: `Bearer ${token}`,
-				},
-			})
-			.then((res) => {
-				const data = res.data.map((teacher) => {
+		adminServices
+			.getTeachers()
+			.then((response) => {
+				const data = response.data.map((teacher) => {
 					teacher.role = teacher.role.toLowerCase();
 					return teacher;
 				});
+
 				setTeachers(data);
 				setLoading(false);
+			})
+			.catch((error) => {
+				console.log(error);
 			});
 	};
 
 	const deleteTeacher = (teacherId) => {
-		axios
-			.delete(`http://localhost:8080/admin/user/${teacherId}`, {
-				headers: {
-					Authorization: `Bearer ${token}`,
-				},
+		adminServices
+			.deleteUser()
+			.then((response) => {
+				console.log("delete teacher response: ", response.data);
 			})
-			.then((res) => {
-				console.log("delete teacher response: ", res.data);
+			.catch((error) => {
+				console.log(error);
 			});
 	};
 
 	const editTeacherOnClick = useCallback((teacherId) => () => {
-		console.log("edit teacher clicked");
 		navigate(`/teacher/${teacherId}/edit`);
 	});
 
@@ -104,7 +103,9 @@ function TeachersTable() {
 				console.log(res);
 				fetchTeachers();
 			})
-			.catch((error) => console.log(error));
+			.catch((error) => {
+				console.log(error);
+			});
 	};
 
 	const columns = [
