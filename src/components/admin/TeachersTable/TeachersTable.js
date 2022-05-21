@@ -53,17 +53,13 @@ function TeachersTable() {
 				},
 			})
 			.then((res) => {
-				console.log("response data of delete ", res.data);
+				console.log("delete teacher response: ", res.data);
 			});
 	};
 
 	const editTeacherOnClick = useCallback((teacherId) => () => {
 		console.log("edit teacher clicked");
-		navigate(`/teacher/${teacherId}/edit`, {
-			state: {
-				x: 3,
-			},
-		});
+		navigate(`/teacher/${teacherId}/edit`);
 	});
 
 	const deleteTeacherOnClick = useCallback((selectedTeacherId) => () => {
@@ -251,7 +247,7 @@ function TeachersTable() {
 								<Typography
 									variant="h4"
 									sx={{ fontWeight: "900", textAlign: "center", marginBottom: "4rem" }}>
-									Import teachers
+									Delete Teacher
 								</Typography>
 								<Typography
 									variant="subtitle1"
