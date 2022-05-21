@@ -8,6 +8,7 @@ import React, { useCallback, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./teachers-table.css";
 import TeachersToolbar from "./TeachersToolbar";
+import LoadingSpinner from "../../LoadingSpinner/LoadingSpinner";
 
 function TeachersTable() {
 	const [teachers, setTeachers] = useState([]);
@@ -16,6 +17,7 @@ function TeachersTable() {
 	const [deleteModalOpened, setDeleteModalOpened] = useState(false);
 	const [excelFileSelected, setExcelFileSelected] = useState(false);
 	const [clickedTeacher, setClickedTeacher] = useState();
+	const [loading, setLoading] = useState(true);
 
 	const navigate = useNavigate();
 
@@ -39,6 +41,7 @@ function TeachersTable() {
 					return teacher;
 				});
 				setTeachers(data);
+				setLoading(false);
 			});
 	};
 
@@ -167,108 +170,114 @@ function TeachersTable() {
 
 	return (
 		<>
-			<DataGrid
-				rows={teachers}
-				columns={columns}
-				components={{
-					Toolbar: TeachersToolbar,
-				}}
-				componentsProps={{
-					toolbar: {
-						importOnClick,
-						deleteOnClick,
-						selection: selectionModel.length < 2,
-					},
-				}}
-				initialState={{
-					sorting: {
-						sortModel: [{ field: "id", sort: "asc" }],
-					},
-				}}
-				checkboxSelection={true}
-				selectionModel={selectionModel}
-				onSelectionModelChange={(newSelectionModel) => {
-					setSelectionModel(newSelectionModel);
-				}}
-			/>
-			{/* Import teachers modal */}
-			<Modal
-				open={importModalOpened}
-				onClose={() => {
-					setImportModalOpened(false);
-					setExcelFileSelected(false);
-				}}>
-				<div className="modal-container">
-					<Typography
-						variant="h4"
-						sx={{ fontWeight: "900", textAlign: "center", marginBottom: "4rem" }}>
-						Import teachers
-					</Typography>
-					<Typography
-						variant="subtitle1"
-						sx={{ fontSize: "1.2rem", textAlign: "center" }}>
-						Upload an excel file
-					</Typography>
-					<input
-						type="file"
-						name="file_upload"
-						id="upload-button"
-						onChange={onFileChange}
+			{loading ? (
+				<LoadingSpinner />
+			) : (
+				<>
+					<DataGrid
+						rows={teachers}
+						columns={columns}
+						components={{
+							Toolbar: TeachersToolbar,
+						}}
+						componentsProps={{
+							toolbar: {
+								importOnClick,
+								deleteOnClick,
+								selection: selectionModel.length < 2,
+							},
+						}}
+						initialState={{
+							sorting: {
+								sortModel: [{ field: "id", sort: "asc" }],
+							},
+						}}
+						checkboxSelection={true}
+						selectionModel={selectionModel}
+						onSelectionModelChange={(newSelectionModel) => {
+							setSelectionModel(newSelectionModel);
+						}}
 					/>
-					<Stack direction="row" justifyContent="center" spacing={2} marginTop={5}>
-						<Button
-							variant="contained"
-							onClick={uploadExcelFile}
-							disabled={!excelFileSelected}>
-							Confirm
-						</Button>
-						<Button
-							variant="outlined"
-							color="error"
-							onClick={() => {
-								setImportModalOpened(false);
-							}}>
-							Cancel
-						</Button>
-					</Stack>
-				</div>
-			</Modal>
-			{/* Confirming deletion modal, should be using Dialog instead I think */}
-			<Modal
-				open={deleteModalOpened}
-				onClose={() => {
-					setDeleteModalOpened(false);
-				}}>
-				<div className="modal-container">
-					<Stack height="100%">
-						<Typography
-							variant="h4"
-							sx={{ fontWeight: "900", textAlign: "center", marginBottom: "4rem" }}>
-							Import teachers
-						</Typography>
-						<Typography
-							variant="subtitle1"
-							sx={{ fontSize: "1.2rem", textAlign: "center" }}>
-							{selectionModel.length > 1
-								? `Are you sure you want to delete the ${selectionModel.length} selected teachers?`
-								: "Are you sure you want to delete the selected teacher?"}
-						</Typography>
-						<Stack direction="row" justifyContent="center" spacing={2} marginTop={5}>
-							<Button variant="contained" onClick={confirmDeleteOnClick}>
-								Confirm
-							</Button>
-							<Button
-								variant="contained"
-								color="error"
-								onClick={() => {
-									setDeleteModalOpened(false);
-								}}>
-								Cancel
-							</Button>
-						</Stack>
-					</Stack>
-				</div>
-			</Modal>
+					{/* Import teachers modal */}
+					<Modal
+						open={importModalOpened}
+						onClose={() => {
+							setImportModalOpened(false);
+							setExcelFileSelected(false);
+						}}>
+						<div className="modal-container">
+							<Typography
+								variant="h4"
+								sx={{ fontWeight: "900", textAlign: "center", marginBottom: "4rem" }}>
+								Import teachers
+							</Typography>
+							<Typography
+								variant="subtitle1"
+								sx={{ fontSize: "1.2rem", textAlign: "center" }}>
+								Upload an excel file
+							</Typography>
+							<input
+								type="file"
+								name="file_upload"
+								id="upload-button"
+								onChange={onFileChange}
+							/>
+							<Stack direction="row" justifyContent="center" spacing={2} marginTop={5}>
+								<Button
+									variant="contained"
+									onClick={uploadExcelFile}
+									disabled={!excelFileSelected}>
+									Confirm
+								</Button>
+								<Button
+									variant="outlined"
+									color="error"
+									onClick={() => {
+										setImportModalOpened(false);
+									}}>
+									Cancel
+								</Button>
+							</Stack>
+						</div>
+					</Modal>
+					{/* Confirming deletion modal, should be using Dialog instead I think */}
+					<Modal
+						open={deleteModalOpened}
+						onClose={() => {
+							setDeleteModalOpened(false);
+						}}>
+						<div className="modal-container">
+							<Stack height="100%">
+								<Typography
+									variant="h4"
+									sx={{ fontWeight: "900", textAlign: "center", marginBottom: "4rem" }}>
+									Import teachers
+								</Typography>
+								<Typography
+									variant="subtitle1"
+									sx={{ fontSize: "1.2rem", textAlign: "center" }}>
+									{selectionModel.length > 1
+										? `Are you sure you want to delete the ${selectionModel.length} selected teachers?`
+										: "Are you sure you want to delete the selected teacher?"}
+								</Typography>
+								<Stack direction="row" justifyContent="center" spacing={2} marginTop={5}>
+									<Button variant="contained" onClick={confirmDeleteOnClick}>
+										Confirm
+									</Button>
+									<Button
+										variant="contained"
+										color="error"
+										onClick={() => {
+											setDeleteModalOpened(false);
+										}}>
+										Cancel
+									</Button>
+								</Stack>
+							</Stack>
+						</div>
+					</Modal>
+				</>
+			)}
 		</>
 	);
 }
