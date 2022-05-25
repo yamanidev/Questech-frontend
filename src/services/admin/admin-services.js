@@ -18,11 +18,7 @@ class AdminServices {
 	}
 
 	addTeacher(teacher) {
-		return axios.post(
-			"http://localhost:8080/admin/user?role=PROFESSOR",
-			teacher,
-			this.config
-		);
+		return axios.post(this.API_URL + "/admin/user/professor", teacher, this.config);
 	}
 
 	editTeacher(id, teacher) {
