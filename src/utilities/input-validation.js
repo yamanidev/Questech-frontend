@@ -9,4 +9,9 @@ function validateEmail(email) {
 	return pattern.test(email);
 }
 
-export { validateName, validateEmail };
+function validatePhoneNumber(phoneNumber) {
+	const pattern = /^(0)(5|6|7)[0-9]{8}$/;
+	return pattern.test(phoneNumber);
+}
+
+export { validateName, validateEmail, validatePhoneNumber };
