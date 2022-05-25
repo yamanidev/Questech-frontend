@@ -11,7 +11,7 @@ import { formatDate } from "../../../../utilities/date-utils";
 import { validateEmail, validateName } from "../../../../utilities/input-validation";
 
 function AddTeacherPage() {
-	const [datePickerDate, setDatePickerDate] = useState(Date.now());
+	const [datePickerDate, setDatePickerDate] = useState(new Date("1970-01-01"));
 	const [firstName, setFirstName] = useState("");
 	const [lastName, setLastName] = useState("");
 	const [email, setEmail] = useState("");
@@ -107,6 +107,8 @@ function AddTeacherPage() {
 					/>
 					<LocalizationProvider dateAdapter={AdapterDateFns}>
 						<DesktopDatePicker
+							maxDate={new Date("1997-12-31")}
+							minDate={new Date("1957-01-01")}
 							label="Birth Date"
 							inputFormat="dd/MM/yyyy"
 							value={datePickerDate}

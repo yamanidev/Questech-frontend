@@ -10,7 +10,7 @@ import LoadingSpinner from "../../../../components/LoadingSpinner/LoadingSpinner
 import adminServices from "../../../../services/admin/admin-services";
 
 function EditTeacherPage() {
-	const [datePickerDate, setDatePickerDate] = useState(Date.now());
+	const [datePickerDate, setDatePickerDate] = useState(new Date("1970-01-01"));
 	const [firstName, setFirstName] = useState("");
 	const [lastName, setLastName] = useState("");
 	const [placeOfBirth, setPlaceOfBirth] = useState("");
@@ -111,6 +111,8 @@ function EditTeacherPage() {
 							/>
 							<LocalizationProvider dateAdapter={AdapterDateFns}>
 								<DesktopDatePicker
+									maxDate={new Date("1997-12-31")}
+									minDate={new Date("1957-01-01")}
 									label="Birth Date"
 									inputFormat="dd/MM/yyyy"
 									value={datePickerDate}
