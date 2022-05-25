@@ -26,7 +26,7 @@ class AdminServices {
 	}
 
 	deleteUser(id) {
-		return axios.delete(this.API_URL + `/admin/user${id}`, this.config);
+		return axios.delete(this.API_URL + `/admin/user/${id}`, this.config);
 	}
 }
 
