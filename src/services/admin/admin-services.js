@@ -22,7 +22,7 @@ class AdminServices {
 	}
 
 	editTeacher(id, teacher) {
-		return axios.put(this.API_URL + `/admin/user/${id}`, teacher, this.config);
+		return axios.put(this.API_URL + `/admin/user/professor/${id}`, teacher, this.config);
 	}
 
 	deleteUser(id) {
