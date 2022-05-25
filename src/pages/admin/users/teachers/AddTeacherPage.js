@@ -8,7 +8,11 @@ import React, { useCallback, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import adminServices from "../../../../services/admin/admin-services";
 import { formatDate } from "../../../../utilities/date-utils";
-import { validateEmail, validateName } from "../../../../utilities/input-validation";
+import {
+	validateEmail,
+	validateName,
+	validatePhoneNumber,
+} from "../../../../utilities/input-validation";
 
 function AddTeacherPage() {
 	const [datePickerDate, setDatePickerDate] = useState(new Date("1970-01-01"));
@@ -24,11 +28,15 @@ function AddTeacherPage() {
 			new Date(datePickerDate).getFullYear()
 		)
 	);
+	const [phoneNumber, setPhoneNumber] = useState("");
+	const [academicLevel, setAcademicLevel] = useState("");
 	const [errors, setErrors] = useState({
 		firstNameError: false,
 		lastNameError: false,
 		placeOfBirthError: false,
 		emailError: false,
+		phoneNumberError: false,
+		academicLevelError: false,
 	});
 
 	const navigate = useNavigate();
@@ -47,15 +55,19 @@ function AddTeacherPage() {
 			birthDate: dateOfBirth,
 			placeBirth: placeOfBirth,
 			email,
+			phoneNumber,
+			academicLevel,
 		};
 	}
 
 	function validateFields() {
 		return !!(
-			validateName(firstName) &&
-			validateName(lastName) &&
-			validateName(placeOfBirth) &&
-			validateEmail(email)
+			!errors.firstNameError &&
+			!errors.lastNameError &&
+			!errors.placeOfBirthError &&
+			!errors.emailError &&
+			!errors.phoneNumberError &&
+			!errors.academicLevelError
 		);
 	}
 
@@ -75,38 +87,44 @@ function AddTeacherPage() {
 		<div className="container relative">
 			<h1 className="mb-10 text-6xl font-semibold">Add New Teacher</h1>
 			<div className="pl-10 pt-10 flex flex-col gap-3">
-				<div className="flex gap-4">
+				<div className="max-w-md flex gap-4">
 					<TextField
+						fullWidth
 						error={errors.firstNameError}
 						label="First Name"
 						onChange={(event) => {
-							setFirstName(event.target.value);
 							setErrors({ ...errors, firstNameError: !validateName(event.target.value) });
-						}}
-					/>
-					<TextField
-						error={errors.lastNameError}
-						label="Last Name"
-						onChange={(event) => {
-							setLastName(event.target.value.toUpperCase());
-							setErrors({ ...errors, lastNameError: !validateName(event.target.value) });
+							setFirstName(event.target.value);
 						}}
 					/>
 				</div>
-				<div className="flex gap-4">
+				<div className="max-w-md flex gap-4">
 					<TextField
+						fullWidth
+						error={errors.lastNameError}
+						label="Last Name"
+						onChange={(event) => {
+							setErrors({ ...errors, lastNameError: !validateName(event.target.value) });
+							setLastName(event.target.value);
+						}}
+					/>
+				</div>
+				<div className="max-w-md flex gap-4">
+					<TextField
+						fullWidth
 						error={errors.placeOfBirthError}
 						label="Place of Birth"
 						onChange={(event) => {
-							setPlaceOfBirth(event.target.value);
 							setErrors({
 								...errors,
 								placeOfBirthError: !validateName(event.target.value),
 							});
+							setPlaceOfBirth(event.target.value);
 						}}
 					/>
 					<LocalizationProvider dateAdapter={AdapterDateFns}>
 						<DesktopDatePicker
+							fullWidth
 							maxDate={new Date("1997-12-31")}
 							minDate={new Date("1957-01-01")}
 							label="Birth Date"
@@ -117,13 +135,40 @@ function AddTeacherPage() {
 						/>
 					</LocalizationProvider>
 				</div>
-				<div className="flex gap-4">
+				<div className="max-w-md flex gap-4">
 					<TextField
+						fullWidth
 						error={errors.emailError}
 						label="Email"
 						onChange={(event) => {
-							setEmail(event.target.value);
 							setErrors({ ...errors, emailError: !validateEmail(event.target.value) });
+							setEmail(event.target.value);
+						}}
+					/>
+					<TextField
+						label="Phone number"
+						fullWidth
+						error={errors.phoneNumberError}
+						onChange={(event) => {
+							setErrors({
+								...errors,
+								phoneNumberError: !validatePhoneNumber(event.target.value),
+							});
+							setPhoneNumber(event.target.value);
+						}}
+					/>
+				</div>
+				<div className="max-w-md flex gap-4">
+					<TextField
+						error={errors.academicLevelError}
+						label="Academic level"
+						fullWidth
+						onChange={(event) => {
+							setErrors({
+								...errors,
+								academicLevelError: !(event.target.value.length >= 9),
+							});
+							setAcademicLevel(event.target.value);
 						}}
 					/>
 				</div>
