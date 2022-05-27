@@ -8,6 +8,11 @@ import React, { useCallback, useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import LoadingSpinner from "../../../../components/LoadingSpinner/LoadingSpinner";
 import adminServices from "../../../../services/admin/admin-services";
+import {
+	validateEmail,
+	validateName,
+	validatePhoneNumber,
+} from "../../../../utilities/input-validation";
 
 function EditTeacherPage() {
 	const [datePickerDate, setDatePickerDate] = useState(new Date("1970-01-01"));
@@ -16,12 +21,19 @@ function EditTeacherPage() {
 	const [placeOfBirth, setPlaceOfBirth] = useState("");
 	const [dateOfBirth, setDateOfBirth] = useState("");
 	const [email, setEmail] = useState("");
-	const [username, setUsername] = useState("");
+	const [phoneNumber, setPhoneNumber] = useState("");
+	const [academicLevel, setAcademicLevel] = useState("");
+	const [errors, setErrors] = useState({
+		firstNameError: false,
+		lastNameError: false,
+		placeOfBirthError: false,
+		emailError: false,
+		phoneNumberError: false,
+		academicLevelError: false,
+	});
 	const [loading, setLoading] = useState(true);
 
 	const { teacherId } = useParams();
-
-	const [teacher, setTeacher] = useState({});
 
 	const navigate = useNavigate();
 
@@ -36,9 +48,11 @@ function EditTeacherPage() {
 				setFirstName(response.data.firstname);
 				setLastName(response.data.familyname);
 				setPlaceOfBirth(response.data.placeBirth);
-				setUsername(response.data.username);
-				setEmail(response.data.email);
 				setDatePickerDate(Date.parse(response.data.birthDate));
+				setDateOfBirth(response.data.birthDate);
+				setEmail(response.data.email);
+				setPhoneNumber(response.data.phoneNumber);
+				setAcademicLevel(response.data.academicLevel);
 				setLoading(false);
 			})
 			.catch((error) => {
@@ -51,18 +65,40 @@ function EditTeacherPage() {
 		const month = newValue.getMonth() + 1;
 		const year = newValue.getFullYear();
 		setDateOfBirth(`${year}-${month}-${day}`);
-		console.log(`${year}-${month}-${day}`);
 		setDatePickerDate(newValue);
 	};
 
 	function getFields() {
 		return {
+			id: teacherId,
 			firstname: firstName,
 			familyname: lastName,
 			birthDate: dateOfBirth,
 			placeBirth: placeOfBirth,
 			email,
+			phoneNumber,
+			academicLevel,
 		};
+	}
+
+	function validateFields() {
+		if (
+			!firstName ||
+			!lastName ||
+			!placeOfBirth ||
+			!email ||
+			!phoneNumber ||
+			!academicLevel
+		)
+			return false;
+		return (
+			!errors.firstNameError &&
+			!errors.lastNameError &&
+			!errors.placeOfBirthError &&
+			!errors.emailError &&
+			!errors.phoneNumberError &&
+			!errors.academicLevelError
+		);
 	}
 
 	const editTeacher = useCallback((modifiedTeacher) => () => {
@@ -83,34 +119,55 @@ function EditTeacherPage() {
 				<LoadingSpinner />
 			) : (
 				<>
-					<h1 className="mb-10 text-6xl font-semibold">Edit Teacher</h1>
+					<h1 className="mb-10 text-6xl font-semibold">Add New Teacher</h1>
 					<div className="pl-10 pt-10 flex flex-col gap-3">
-						<div className="flex gap-4">
+						<div className="max-w-md flex gap-4">
 							<TextField
+								fullWidth
+								error={errors.firstNameError}
 								label="First Name"
 								value={firstName}
 								onChange={(event) => {
+									setErrors({
+										...errors,
+										firstNameError: !validateName(event.target.value),
+									});
 									setFirstName(event.target.value);
 								}}
 							/>
+						</div>
+						<div className="max-w-md flex gap-4">
 							<TextField
+								fullWidth
+								error={errors.lastNameError}
 								label="Last Name"
 								value={lastName}
 								onChange={(event) => {
+									setErrors({
+										...errors,
+										lastNameError: !validateName(event.target.value),
+									});
 									setLastName(event.target.value);
 								}}
 							/>
 						</div>
-						<div className="flex gap-4">
+						<div className="max-w-md flex gap-4">
 							<TextField
+								fullWidth
+								error={errors.placeOfBirthError}
 								label="Place of Birth"
 								value={placeOfBirth}
 								onChange={(event) => {
+									setErrors({
+										...errors,
+										placeOfBirthError: !validateName(event.target.value),
+									});
 									setPlaceOfBirth(event.target.value);
 								}}
 							/>
 							<LocalizationProvider dateAdapter={AdapterDateFns}>
 								<DesktopDatePicker
+									fullWidth
 									maxDate={new Date("1997-12-31")}
 									minDate={new Date("1957-01-01")}
 									label="Birth Date"
@@ -121,19 +178,46 @@ function EditTeacherPage() {
 								/>
 							</LocalizationProvider>
 						</div>
-						<div className="flex gap-4">
+						<div className="max-w-md flex gap-4">
 							<TextField
-								label="Username"
-								value={username}
-								onChange={(event) => {
-									setUsername(event.target.value);
-								}}
-							/>
-							<TextField
+								fullWidth
+								error={errors.emailError}
 								label="Email"
 								value={email}
 								onChange={(event) => {
+									setErrors({
+										...errors,
+										emailError: !validateEmail(event.target.value),
+									});
 									setEmail(event.target.value);
+								}}
+							/>
+							<TextField
+								label="Phone number"
+								fullWidth
+								value={phoneNumber}
+								error={errors.phoneNumberError}
+								onChange={(event) => {
+									setErrors({
+										...errors,
+										phoneNumberError: !validatePhoneNumber(event.target.value),
+									});
+									setPhoneNumber(event.target.value);
+								}}
+							/>
+						</div>
+						<div className="max-w-md flex gap-4">
+							<TextField
+								error={errors.academicLevelError}
+								label="Academic level"
+								value={academicLevel}
+								fullWidth
+								onChange={(event) => {
+									setErrors({
+										...errors,
+										academicLevelError: !(event.target.value.length >= 9),
+									});
+									setAcademicLevel(event.target.value);
 								}}
 							/>
 						</div>
@@ -141,7 +225,10 @@ function EditTeacherPage() {
 							<Button variant="contained" color="error" component={Link} to="/teachers">
 								Cancel
 							</Button>
-							<Button variant="contained" onClick={editTeacher(getFields())}>
+							<Button
+								variant="contained"
+								onClick={editTeacher(getFields())}
+								disabled={!validateFields()}>
 								Save
 							</Button>
 						</Stack>

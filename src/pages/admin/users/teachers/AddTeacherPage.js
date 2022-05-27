@@ -61,7 +61,16 @@ function AddTeacherPage() {
 	}
 
 	function validateFields() {
-		return !!(
+		if (
+			!firstName ||
+			!lastName ||
+			!placeOfBirth ||
+			!email ||
+			!phoneNumber ||
+			!academicLevel
+		)
+			return false;
+		return (
 			!errors.firstNameError &&
 			!errors.lastNameError &&
 			!errors.placeOfBirthError &&
