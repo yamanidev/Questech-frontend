@@ -28,7 +28,7 @@ function LoginForm() {
 	};
 
 	return (
-		<div className="max-w-[680px] w-full mx-auto mt-20 px-10 sm:px-28 py-10 sm:rounded-xl bg-white">
+		<div className=" sm:px-28 py-10 sm:rounded-xl">
 			<h2 className="text-4xl text-center text-[#555555]">Sign in</h2>
 			<form onSubmit={loginHandler} className="mt-11">
 				{error ? (
