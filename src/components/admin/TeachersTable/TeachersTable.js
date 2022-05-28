@@ -16,7 +16,6 @@ function TeachersTable() {
 	const [selectionModel, setSelectionModel] = useState([]);
 	const [importModalOpened, setImportModalOpened] = useState(false);
 	const [deleteModalOpened, setDeleteModalOpened] = useState(false);
-	const [excelFileSelected, setExcelFileSelected] = useState(false);
 	const [clickedTeacher, setClickedTeacher] = useState();
 	const [loading, setLoading] = useState(true);
 
@@ -48,7 +47,7 @@ function TeachersTable() {
 
 	const deleteTeacher = (teacherId) => {
 		adminServices
-			.deleteUser()
+			.deleteUser(teacherId)
 			.then((response) => {
 				console.log("delete teacher response: ", response.data);
 			})
@@ -78,6 +77,10 @@ function TeachersTable() {
 		setDeleteModalOpened(false);
 		if (selectionModel.length > 1) {
 			// Ids of teachers to delete are in selectionModel
+			for (const teacherId of selectionModel) {
+				deleteTeacher(teacherId);
+				fetchTeachers();
+			}
 		} else {
 			deleteTeacher(clickedTeacher);
 			setTimeout(() => {
@@ -86,10 +89,9 @@ function TeachersTable() {
 		}
 	};
 
-	const onFileChange = (e) => {
-		const file = e.target.files[0];
+	const onFileChange = (event) => {
+		const file = event.target.files[0];
 		formData.append("file", file);
-		setExcelFileSelected(true);
 	};
 
 	const uploadExcelFile = () => {
@@ -109,7 +111,6 @@ function TeachersTable() {
 	};
 
 	const columns = [
-		{ field: "id", headerName: "ID", maxWidth: 100, flex: 1, editable: false },
 		{
 			field: "firstname",
 			headerName: "First name",
@@ -200,7 +201,6 @@ function TeachersTable() {
 						open={importModalOpened}
 						onClose={() => {
 							setImportModalOpened(false);
-							setExcelFileSelected(false);
 						}}>
 						<div className="modal-container">
 							<Typography
@@ -216,14 +216,12 @@ function TeachersTable() {
 							<input
 								type="file"
 								name="file_upload"
+								accept=".xlsx"
 								id="upload-button"
 								onChange={onFileChange}
 							/>
 							<Stack direction="row" justifyContent="center" spacing={2} marginTop={5}>
-								<Button
-									variant="contained"
-									onClick={uploadExcelFile}
-									disabled={!excelFileSelected}>
+								<Button variant="contained" onClick={uploadExcelFile}>
 									Confirm
 								</Button>
 								<Button
