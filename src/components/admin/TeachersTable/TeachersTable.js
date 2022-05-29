@@ -4,7 +4,7 @@ import { Button, Stack, Typography } from "@mui/material";
 import Modal from "@mui/material/Modal";
 import { DataGrid, GridActionsCellItem } from "@mui/x-data-grid";
 import axios from "axios";
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import adminServices from "../../../services/admin/admin-services";
 import LoadingSpinner from "../../LoadingSpinner/LoadingSpinner";
@@ -21,8 +21,7 @@ function TeachersTable() {
 
 	const navigate = useNavigate();
 
-	const token = localStorage.getItem("jwtToken");
-	let formData = new FormData();
+	const formData = useRef(new FormData());
 
 	useEffect(() => {
 		fetchTeachers();
@@ -91,12 +90,13 @@ function TeachersTable() {
 
 	const onFileChange = (event) => {
 		const file = event.target.files[0];
-		formData.append("file", file);
+		formData.current.append("file", file);
 	};
 
 	const uploadExcelFile = () => {
+		const token = localStorage.getItem("jwtToken");
 		axios
-			.post("http://localhost:8080/admin/user/professor/upload", formData, {
+			.post("http://localhost:8080/admin/user/professor/upload", formData.current, {
 				headers: {
 					Authorization: `Bearer ${token}`,
 				},
