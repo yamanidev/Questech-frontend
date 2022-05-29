@@ -17,6 +17,7 @@ function TeachersTable() {
 	const [importModalOpened, setImportModalOpened] = useState(false);
 	const [deleteModalOpened, setDeleteModalOpened] = useState(false);
 	const [clickedTeacher, setClickedTeacher] = useState();
+	const [excelFileSelected, setExcelFileSelected] = useState(false);
 	const [loading, setLoading] = useState(true);
 
 	const navigate = useNavigate();
@@ -91,6 +92,7 @@ function TeachersTable() {
 	const onFileChange = (event) => {
 		const file = event.target.files[0];
 		formData.current.append("file", file);
+		setExcelFileSelected(true);
 	};
 
 	const uploadExcelFile = () => {
@@ -201,6 +203,7 @@ function TeachersTable() {
 						open={importModalOpened}
 						onClose={() => {
 							setImportModalOpened(false);
+							setExcelFileSelected(false);
 						}}>
 						<div className="modal-container">
 							<Typography
@@ -221,7 +224,10 @@ function TeachersTable() {
 								onChange={onFileChange}
 							/>
 							<Stack direction="row" justifyContent="center" spacing={2} marginTop={5}>
-								<Button variant="contained" onClick={uploadExcelFile}>
+								<Button
+									variant="contained"
+									onClick={uploadExcelFile}
+									disabled={!excelFileSelected}>
 									Confirm
 								</Button>
 								<Button
@@ -229,6 +235,7 @@ function TeachersTable() {
 									color="error"
 									onClick={() => {
 										setImportModalOpened(false);
+										setExcelFileSelected(false);
 									}}>
 									Cancel
 								</Button>
