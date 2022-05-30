@@ -40,7 +40,12 @@ class AuthService {
 	// Validates token based on expiration time
 	isTokenValid(token) {
 		const expirationTime = jwt_decode(token).exp;
-		return expirationTime * 1000 > Date.now();
+		const isValid = expirationTime * 1000 > Date.now();
+		if (!isValid) {
+			localStorage.removeItem("jwtToken");
+			localStorage.removeItem("user");
+		}
+		return isValid;
 	}
 
 	// Checks authentication based on expiration time of JWT
