@@ -26,31 +26,31 @@ if (userRole === "ADMIN") {
 		{
 			icon: MenuBookIcon,
 			desc: "Courses",
-			route: "/profile",
+			route: "/courses",
 			badge: 0,
 		},
 		{
 			icon: DomainIcon,
 			desc: "Facilities",
-			route: "/profile",
+			route: "/facilities",
 			badge: 0,
 		},
 		{
 			icon: GroupIcon,
 			desc: "Groups",
-			route: "/profile",
+			route: "/groups",
 			badge: 0,
 		},
 		{
 			icon: CalendarMonthIcon,
 			desc: "Schedule",
-			route: "/profile",
+			route: "/schedule",
 			badge: 0,
 		},
 		{
 			icon: AnnouncementIcon,
 			desc: "Announcements",
-			route: "/profile",
+			route: "/announcements",
 			badge: 0,
 		}
 	);
