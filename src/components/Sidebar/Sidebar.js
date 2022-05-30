@@ -1,12 +1,6 @@
-import Analytics from "@mui/icons-material/Analytics";
-import BorderColor from "@mui/icons-material/BorderColor";
-import DashboardOutlined from "@mui/icons-material/DashboardOutlined";
 import ExpandLess from "@mui/icons-material/ExpandLess";
 import ExpandMore from "@mui/icons-material/ExpandMore";
-import FolderOpen from "@mui/icons-material/FolderOpen";
-import Forum from "@mui/icons-material/Forum";
 import MenuIcon from "@mui/icons-material/Menu";
-import Person from "@mui/icons-material/Person";
 import Badge from "@mui/material/Badge";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
@@ -21,6 +15,7 @@ import Tooltip from "@mui/material/Tooltip";
 import Typography from "@mui/material/Typography";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import navList from "./navList";
 
 function Sidebar() {
 	const drawerWidthOpen = 300;
@@ -44,59 +39,6 @@ function Sidebar() {
 		if (!drawerOpen) setDrawerOpen(true);
 		setUsersOpen(!usersOpen);
 	}
-
-	const navList = [
-		{
-			icon: DashboardOutlined,
-			desc: "Dashboard",
-			route: "/dashboard",
-			badge: 0,
-			subList: [],
-		},
-		{
-			icon: Person,
-			desc: "Users",
-			badge: 0,
-			subList: [],
-		},
-		{
-			icon: Forum,
-			desc: "Forum",
-			route: "/profile",
-			badge: 0,
-			subList: [
-				{
-					desc: "chat",
-					badge: 2,
-				},
-				{
-					desc: "reminder",
-					badge: 0,
-				},
-			],
-		},
-		{
-			icon: Analytics,
-			desc: "Analytics",
-			route: "/profile",
-			badge: 0,
-			subList: [],
-		},
-		{
-			icon: FolderOpen,
-			desc: "Folder",
-			route: "/profile",
-			badge: 0,
-			subList: [],
-		},
-		{
-			icon: BorderColor,
-			desc: "Edit",
-			route: "/profile",
-			badge: 0,
-			subList: [],
-		},
-	];
 
 	const drawerContent = (
 		<>
@@ -159,7 +101,7 @@ function Sidebar() {
 								},
 							},
 						}}>
-						{index === 1 ? (
+						{key.desc === "Users" ? (
 							<>
 								<ListItemButton
 									onClick={toggleUsersOpen}
