@@ -15,6 +15,8 @@ function LoginForm() {
 			.login(email, password)
 			.then(() => {
 				navigate("/profile");
+				// Force refresh to adapt navList based on user role
+				window.location.reload(false);
 			})
 			.catch((error) => {
 				if (error.response) {
