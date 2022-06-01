@@ -22,7 +22,7 @@ function Appbar() {
 
 	const handleLogOut = () => {
 		authService.logout();
-		navigate("/");
+		navigate("/login");
 	};
 
 	return (
