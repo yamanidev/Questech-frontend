@@ -57,7 +57,7 @@ function TeachersTable() {
 	};
 
 	const editTeacherOnClick = useCallback((teacherId) => () => {
-		navigate(`/teacher/${teacherId}/edit`);
+		navigate(`/admin/teacher/${teacherId}/edit`);
 	});
 
 	const deleteTeacherOnClick = useCallback((selectedTeacherId) => () => {

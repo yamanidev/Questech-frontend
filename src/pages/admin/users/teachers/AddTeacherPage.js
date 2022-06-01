@@ -86,7 +86,7 @@ function AddTeacherPage() {
 			.addTeacher(teacher)
 			.then((response) => {
 				console.log(response);
-				navigate("/teachers");
+				navigate("/admin/teachers");
 			})
 			.catch((error) => {
 				console.log(error);
@@ -192,7 +192,11 @@ function AddTeacherPage() {
 						/>
 					</div>
 					<Stack spacing={2} direction="row" marginTop={5}>
-						<Button variant="contained" color="error" component={Link} to="/teachers">
+						<Button
+							variant="contained"
+							color="error"
+							component={Link}
+							to="/admin/teachers">
 							Cancel
 						</Button>
 						<Button

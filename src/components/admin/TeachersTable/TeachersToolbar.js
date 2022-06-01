@@ -28,7 +28,7 @@ function TeachersToolbar(props) {
 					disabled={props.selection}>
 					Delete
 				</Button>
-				<Button variant="contained" component={Link} to="/teacher/new">
+				<Button variant="contained" component={Link} to="/admin/teacher/new">
 					Add new teacher
 				</Button>
 			</Stack>
