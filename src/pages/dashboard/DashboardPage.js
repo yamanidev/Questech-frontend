@@ -1,11 +1,21 @@
 import React from "react";
+import userService from "../../services/user/user-service";
+import Unauthorized from "../Unauthorized/Unauthorized";
+import DashboardPageAdmin from "../admin/dashboard/DashboardPageAdmin";
+import DashboardPageStudent from "../student/dashboard/DashboardPageStudent";
+import DashboardPageTeacher from "../teacher/dashboard/DashboardPageTeacher";
 
 function DashboardPage() {
-	return (
-		<div className="container">
-			<h1 className="mb-10 text-6xl font-semibold">Dashboard</h1>
-		</div>
-	);
+	const currentUserRole = userService.getUser().role;
+
+	if (currentUserRole === "ADMIN") {
+		return <DashboardPageAdmin />;
+	} else if (currentUserRole === "PROFESSOR") {
+		return <DashboardPageTeacher />;
+	} else if (currentUserRole === "STUDENT") {
+		return <DashboardPageStudent />;
+	}
+	return <Unauthorized />;
 }
 
 export default DashboardPage;

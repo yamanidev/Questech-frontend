@@ -3,22 +3,20 @@ import { Route, Routes } from "react-router-dom";
 import Layout from "./components/Layout/Layout";
 import RequireAuth from "./components/RequireAuth/RequireAuth";
 import RequireRole from "./components/RequireRole/RequireRole";
-import DashboardPageAdmin from "./pages/admin/dashboard/DashboardPageAdmin";
-import DashboardPageTeacher from "./pages/teacher/dashboard/DashboardPageTeacher";
-import DashboardPageStudent from "./pages/student/dashboard/DashboardPageStudent";
+import GroupsPage from "./pages/admin/groups/GroupsPage";
 import StudentsPage from "./pages/admin/users/students/StudentsPage";
 import AddTeacherPage from "./pages/admin/users/teachers/AddTeacherPage";
 import EditTeacherPage from "./pages/admin/users/teachers/EditTeacherPage";
 import TeachersPage from "./pages/admin/users/teachers/TeachersPage";
-import CoursesPageAdmin from "./pages/admin/courses/CoursesPageAdmin";
-import FacilitiesPageAdmin from "./pages/admin/facilities/FacilitiesPageAdmin";
-import GroupsPage from "./pages/admin/groups/GroupsPage";
-import SchedulePageAdmin from "./pages/admin/schedule/SchedulePageAdmin";
-import AnnouncementsPageAdmin from "./pages/admin/announcements/AnnouncementsPageAdmin";
+import AnnouncementsPage from "./pages/announcements/AnnouncementsPage";
+import CoursesPage from "./pages/courses/CoursesPage";
+import DashboardPage from "./pages/dashboard/DashboardPage";
+import FacilitiesPage from "./pages/facilities/FacilitiesPage";
 import HomePage from "./pages/home/HomePage";
 import LoginPage from "./pages/login/LoginPage";
 import NoMatchPage from "./pages/noMatch/NoMatchPage";
 import ProfilePage from "./pages/profile/ProfilePage";
+import SchedulePage from "./pages/schedule/SchedulePage";
 import SettingsPage from "./pages/settings/SettingsPage";
 
 function App() {
@@ -36,24 +34,31 @@ function App() {
 				<Route path="/settings" element={<SettingsPage />} />
 				{/* Routes for the Administrator */}
 				<Route element={<RequireRole role="ADMIN" />}>
-					<Route path="/dashboard" element={<DashboardPageAdmin />} />
-					<Route path="/teachers" element={<TeachersPage />} />
-					<Route path="/teacher/:teacherId/edit" element={<EditTeacherPage />} />
-					<Route path="/teacher/new" element={<AddTeacherPage />} />
-					<Route path="/students" element={<StudentsPage />} />
-					<Route path="/courses" element={<CoursesPageAdmin />} />
-					<Route path="/facilities" element={<FacilitiesPageAdmin />} />
-					<Route path="/groups" element={<GroupsPage />} />
-					<Route path="/schedule" element={<SchedulePageAdmin />} />
-					<Route path="/announcements" element={<AnnouncementsPageAdmin />} />
+					<Route path="/admin/dashboard" element={<DashboardPage />} />
+					<Route path="/admin/teachers" element={<TeachersPage />} />
+					<Route path="/admin/teacher/:teacherId/edit" element={<EditTeacherPage />} />
+					<Route path="/admin/teacher/new" element={<AddTeacherPage />} />
+					<Route path="/admin/students" element={<StudentsPage />} />
+					<Route path="/admin/courses" element={<CoursesPage />} />
+					<Route path="/admin/facilities" element={<FacilitiesPage />} />
+					<Route path="/admin/groups" element={<GroupsPage />} />
+					<Route path="/admin/schedule" element={<SchedulePage />} />
+					<Route path="/admin/announcements" element={<AnnouncementsPage />} />
 				</Route>
 				{/* Routes for the Teacher */}
 				<Route element={<RequireRole role="PROFESSOR" />}>
-					<Route path="/dashboard" element={<DashboardPageTeacher />} />
+					<Route path="/teacher/dashboard" element={<DashboardPage />} />
+					<Route path="/teacher/courses" element={<CoursesPage />} />
+					<Route path="/teacher/facilities" element={<FacilitiesPage />} />
+					<Route path="/teacher/schedule" element={<SchedulePage />} />
+					<Route path="/teacher/announcements" element={<AnnouncementsPage />} />
 				</Route>
 				{/* Routes for the Student */}
 				<Route element={<RequireRole role="STUDENT" />}>
-					<Route path="/dashboard" element={<DashboardPageStudent />} />
+					<Route path="/student/dashboard" element={<DashboardPage />} />
+					<Route path="/student/courses" element={<CoursesPage />} />
+					<Route path="/student/schedule" element={<SchedulePage />} />
+					<Route path="/student/announcements" element={<AnnouncementsPage />} />
 				</Route>
 			</Route>
 			<Route path="*" element={<NoMatchPage />} />

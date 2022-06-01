@@ -15,7 +15,7 @@ if (userRole === "ADMIN") {
 		{
 			icon: DashboardOutlined,
 			desc: "Dashboard",
-			route: "/dashboard",
+			route: "/admin/dashboard",
 			badge: 0,
 		},
 		{
@@ -26,31 +26,31 @@ if (userRole === "ADMIN") {
 		{
 			icon: MenuBookIcon,
 			desc: "Courses",
-			route: "/courses",
+			route: "/admin/courses",
 			badge: 0,
 		},
 		{
 			icon: DomainIcon,
 			desc: "Facilities",
-			route: "/facilities",
+			route: "/admin/facilities",
 			badge: 0,
 		},
 		{
 			icon: GroupIcon,
 			desc: "Groups",
-			route: "/groups",
+			route: "/admin/groups",
 			badge: 0,
 		},
 		{
 			icon: CalendarMonthIcon,
 			desc: "Schedule",
-			route: "/schedule",
+			route: "/admin/schedule",
 			badge: 0,
 		},
 		{
 			icon: AnnouncementIcon,
 			desc: "Announcements",
-			route: "/announcements",
+			route: "/admin/announcements",
 			badge: 0,
 		}
 	);
@@ -59,31 +59,31 @@ if (userRole === "ADMIN") {
 		{
 			icon: DashboardOutlined,
 			desc: "Dashboard",
-			route: "/dashboard",
+			route: "/teacher/dashboard",
 			badge: 0,
 		},
 		{
 			icon: MenuBookIcon,
 			desc: "Courses",
-			route: "/profile",
+			route: "/teacher/courses",
 			badge: 0,
 		},
 		{
 			icon: DomainIcon,
 			desc: "Facilities",
-			route: "/profile",
+			route: "/teacher/facilities",
 			badge: 0,
 		},
 		{
 			icon: CalendarMonthIcon,
 			desc: "Schedule",
-			route: "/profile",
+			route: "/teacher/schedule",
 			badge: 0,
 		},
 		{
 			icon: AnnouncementIcon,
 			desc: "Announcements",
-			route: "/profile",
+			route: "/teacher/announcements",
 			badge: 0,
 		}
 	);
@@ -92,25 +92,25 @@ if (userRole === "ADMIN") {
 		{
 			icon: DashboardOutlined,
 			desc: "Dashboard",
-			route: "/dashboard",
+			route: "/student/dashboard",
 			badge: 0,
 		},
 		{
 			icon: MenuBookIcon,
 			desc: "Courses",
-			route: "/profile",
+			route: "/student/courses",
 			badge: 0,
 		},
 		{
 			icon: CalendarMonthIcon,
 			desc: "Schedule",
-			route: "/profile",
+			route: "/student/schedule",
 			badge: 0,
 		},
 		{
 			icon: AnnouncementIcon,
 			desc: "Announcements",
-			route: "/profile",
+			route: "/student/announcements",
 			badge: 0,
 		}
 	);

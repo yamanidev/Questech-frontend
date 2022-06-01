@@ -143,7 +143,7 @@ function Sidebar() {
 									<List component="div" disablePadding>
 										<ListItemButton
 											component={Link}
-											to="/teachers"
+											to="/admin/teachers"
 											sx={{
 												margin: "6px 14px",
 												pl: 9,
@@ -169,7 +169,7 @@ function Sidebar() {
 										</ListItemButton>
 										<ListItemButton
 											component={Link}
-											to="/students"
+											to="/admin/students"
 											sx={{
 												margin: "6px 14px",
 												pl: 9,
