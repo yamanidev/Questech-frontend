@@ -4,8 +4,9 @@ import TextField from "@mui/material/TextField";
 import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
 import { DesktopDatePicker } from "@mui/x-date-pickers/DesktopDatePicker";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
+import teacherSVG from "../../../../assets/teacher.svg";
 import LoadingSpinner from "../../../../components/LoadingSpinner/LoadingSpinner";
 import adminServices from "../../../../services/admin/admin-services";
 import {
@@ -13,7 +14,6 @@ import {
 	validateName,
 	validatePhoneNumber,
 } from "../../../../utilities/input-validation";
-import professorSVG from "../../../../assets/professor.svg";
 
 function EditTeacherPage() {
 	const [datePickerDate, setDatePickerDate] = useState(new Date("1970-01-01"));
@@ -34,6 +34,8 @@ function EditTeacherPage() {
 	});
 	const [loading, setLoading] = useState(true);
 
+	const currentTeacher = useRef();
+
 	const { teacherId } = useParams();
 
 	const navigate = useNavigate();
@@ -46,6 +48,7 @@ function EditTeacherPage() {
 		adminServices
 			.getTeacher(teacherId)
 			.then((response) => {
+				currentTeacher.current = response.data;
 				setFirstName(response.data.firstname);
 				setLastName(response.data.familyname);
 				setPlaceOfBirth(response.data.placeBirth);
@@ -71,7 +74,7 @@ function EditTeacherPage() {
 
 	function getFields() {
 		return {
-			id: teacherId,
+			...currentTeacher.current,
 			firstname: firstName,
 			familyname: lastName,
 			birthDate: dateOfBirth,
@@ -107,7 +110,7 @@ function EditTeacherPage() {
 			.editTeacher(teacherId, modifiedTeacher)
 			.then((response) => {
 				console.log(response);
-				navigate("/teachers");
+				navigate("/admin/teachers");
 			})
 			.catch((error) => {
 				console.log(error);
@@ -115,7 +118,7 @@ function EditTeacherPage() {
 	});
 
 	return (
-		<div className="container">
+		<div className="container relative">
 			{loading ? (
 				<LoadingSpinner />
 			) : (
@@ -226,7 +229,11 @@ function EditTeacherPage() {
 								/>
 							</div>
 							<Stack spacing={2} direction="row" marginTop={5}>
-								<Button variant="contained" color="error" component={Link} to="/teachers">
+								<Button
+									variant="contained"
+									color="error"
+									component={Link}
+									to="/admin/teachers">
 									Cancel
 								</Button>
 								<Button
@@ -237,7 +244,7 @@ function EditTeacherPage() {
 								</Button>
 							</Stack>
 						</div>
-						<img src={professorSVG} alt="" />
+						<img src={teacherSVG} alt="" />
 					</div>
 				</>
 			)}

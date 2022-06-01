@@ -13,7 +13,7 @@ import {
 	validateName,
 	validatePhoneNumber,
 } from "../../../../utilities/input-validation";
-import professorSVG from "../../../../assets/professor.svg";
+import teacherSVG from "../../../../assets/teacher.svg";
 
 function AddTeacherPage() {
 	const [datePickerDate, setDatePickerDate] = useState(new Date("1970-01-01"));
@@ -94,7 +94,7 @@ function AddTeacherPage() {
 	});
 
 	return (
-		<div className="container relative">
+		<div className="container">
 			<h1 className="mb-10 text-6xl text-center xl:text-left font-semibold">
 				Add New Teacher
 			</h1>
@@ -207,7 +207,7 @@ function AddTeacherPage() {
 						</Button>
 					</Stack>
 				</div>
-				<img src={professorSVG} alt="" />
+				<img src={teacherSVG} alt="" />
 			</div>
 		</div>
 	);

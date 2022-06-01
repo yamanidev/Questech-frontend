@@ -3,8 +3,7 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import { Button, Stack, Typography } from "@mui/material";
 import Modal from "@mui/material/Modal";
 import { DataGrid, GridActionsCellItem } from "@mui/x-data-grid";
-import axios from "axios";
-import React, { useCallback, useEffect, useState, useRef } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import adminServices from "../../../services/admin/admin-services";
 import LoadingSpinner from "../../LoadingSpinner/LoadingSpinner";
@@ -91,13 +90,8 @@ function TeachersTable() {
 	};
 
 	const uploadExcelFile = () => {
-		const token = localStorage.getItem("jwtToken");
-		axios
-			.post("http://localhost:8080/admin/user/professor/upload", formData.current, {
-				headers: {
-					Authorization: `Bearer ${token}`,
-				},
-			})
+		adminServices
+			.importTeachers(formData.current)
 			.then((res) => {
 				console.log(res);
 				fetchTeachers();

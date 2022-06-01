@@ -4,6 +4,8 @@ import Layout from "./components/Layout/Layout";
 import RequireAuth from "./components/RequireAuth/RequireAuth";
 import RequireRole from "./components/RequireRole/RequireRole";
 import GroupsPage from "./pages/admin/groups/GroupsPage";
+import AddStudentPage from "./pages/admin/users/students/AddStudentPage";
+import EditStudentPage from "./pages/admin/users/students/EditStudentPage";
 import StudentsPage from "./pages/admin/users/students/StudentsPage";
 import AddTeacherPage from "./pages/admin/users/teachers/AddTeacherPage";
 import EditTeacherPage from "./pages/admin/users/teachers/EditTeacherPage";
@@ -39,6 +41,8 @@ function App() {
 					<Route path="/admin/teacher/:teacherId/edit" element={<EditTeacherPage />} />
 					<Route path="/admin/teacher/new" element={<AddTeacherPage />} />
 					<Route path="/admin/students" element={<StudentsPage />} />
+					<Route path="/admin/student/new" element={<AddStudentPage />} />
+					<Route path="/admin/student/:studentId/edit" element={<EditStudentPage />} />
 					<Route path="/admin/courses" element={<CoursesPage />} />
 					<Route path="/admin/facilities" element={<FacilitiesPage />} />
 					<Route path="/admin/groups" element={<GroupsPage />} />
