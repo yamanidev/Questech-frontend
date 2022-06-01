@@ -32,12 +32,7 @@ function TeachersTable() {
 		adminServices
 			.getTeachers()
 			.then((response) => {
-				const data = response.data.map((teacher) => {
-					teacher.role = teacher.role.toLowerCase();
-					return teacher;
-				});
-
-				setTeachers(data);
+				setTeachers(response.data);
 				setLoading(false);
 			})
 			.catch((error) => {
@@ -114,45 +109,54 @@ function TeachersTable() {
 
 	const columns = [
 		{
-			field: "firstname",
-			headerName: "First name",
-			minWidth: 100,
-			flex: 1,
-			editable: false,
-		},
-		{
 			field: "familyname",
 			headerName: "Last name",
 			minWidth: 100,
 			flex: 1,
 			editable: false,
+			hideable: false,
 		},
 		{
-			field: "username",
-			headerName: "Username",
+			field: "firstname",
+			headerName: "First name",
 			minWidth: 100,
 			flex: 1,
 			editable: false,
+			hideable: false,
 		},
 		{
 			field: "email",
 			headerName: "Email",
-			description: "This column has a value getter and is not sortable.",
 			sortable: false,
 			minWidth: 100,
 			flex: 1,
 			editable: false,
+			hideable: false,
 		},
 		{
-			field: "role",
-			minWidth: 100,
-			flex: 0.5,
-			headerName: "Type",
+			field: "phoneNumber",
+			headerName: "Phone",
+			flex: 1,
+			editable: false,
+		},
+		{
+			field: "placeBirth",
+			headerName: "Place of birth",
+			hide: true,
+			flex: 1,
+			editable: false,
+		},
+		{
+			field: "academicLevel",
+			headerName: "Academic level",
+			flex: 1,
+			editable: false,
 		},
 		{
 			field: "actions",
 			type: "actions",
 			headerName: "Actions",
+			hideable: false,
 			getActions: (params) => [
 				<GridActionsCellItem
 					icon={<Edit />}
