@@ -9,25 +9,30 @@ class AdminServices {
 		},
 	};
 
-	deleteUser(id) {
-		return axios.delete(this.API_URL + `/admin/user/${id}`, this.config);
+	// Either Teacher or Student
+	deleteUser(userId) {
+		return axios.delete(this.API_URL + `/admin/user/${userId}`, this.config);
 	}
 
 	// Teachers
-	getTeacher(teacherId) {
-		return axios.get(this.API_URL + `/admin/user/professor/${teacherId}`, this.config);
-	}
-
 	getTeachers() {
 		return axios.get(this.API_URL + "/admin/user/professor", this.config);
+	}
+
+	getTeacher(teacherId) {
+		return axios.get(this.API_URL + `/admin/user/professor/${teacherId}`, this.config);
 	}
 
 	addTeacher(teacher) {
 		return axios.post(this.API_URL + "/admin/user/professor", teacher, this.config);
 	}
 
-	editTeacher(id, teacher) {
-		return axios.put(this.API_URL + `/admin/user/professor/${id}`, teacher, this.config);
+	editTeacher(teacherId, teacher) {
+		return axios.put(
+			this.API_URL + `/admin/user/professor/${teacherId}`,
+			teacher,
+			this.config
+		);
 	}
 
 	importTeachers(formData) {
@@ -39,24 +44,33 @@ class AdminServices {
 	}
 
 	// Students
-	getStudent(studentId) {
-		return axios.get(this.API_URL + `/admin/user/student/${studentId}`, this.config);
-	}
-
 	getStudents() {
 		return axios.get(this.API_URL + "/admin/user/student", this.config);
+	}
+
+	getStudent(studentId) {
+		return axios.get(this.API_URL + `/admin/user/student/${studentId}`, this.config);
 	}
 
 	addStudent(student) {
 		return axios.post(this.API_URL + "/admin/user/student", student, this.config);
 	}
 
-	editStudent(id, student) {
-		return axios.put(this.API_URL + `/admin/student/${id}`, student, this.config);
+	editStudent(studentId, student) {
+		return axios.put(this.API_URL + `/admin/student/${studentId}`, student, this.config);
 	}
 
 	importStudents(formData) {
 		return axios.post(this.API_URL + "/admin/user/student/upload", formData, this.config);
+	}
+
+	// Facilities
+	getFacilities() {
+		return axios.get(this.API_URL + "/admin/location", this.config);
+	}
+
+	deleteFacility(facilityId) {
+		return axios.delete(this.API_URL + `/admin/location/${facilityId}`, this.config);
 	}
 }
 
