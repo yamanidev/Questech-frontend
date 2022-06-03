@@ -69,6 +69,10 @@ class AdminServices {
 		return axios.get(this.API_URL + "/admin/location", this.config);
 	}
 
+	addFacility(facility) {
+		return axios.post(this.API_URL + "/admin/location", facility, this.config);
+	}
+
 	deleteFacility(facilityId) {
 		return axios.delete(this.API_URL + `/admin/location/${facilityId}`, this.config);
 	}

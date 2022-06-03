@@ -14,6 +14,7 @@ import AnnouncementsPage from "./pages/announcements/AnnouncementsPage";
 import CoursesPage from "./pages/courses/CoursesPage";
 import DashboardPage from "./pages/dashboard/DashboardPage";
 import FacilitiesPage from "./pages/facilities/FacilitiesPage";
+import AddFacilitiesPage from "./pages/admin/facilities/AddFacilityPage";
 import HomePage from "./pages/home/HomePage";
 import LoginPage from "./pages/login/LoginPage";
 import NoMatchPage from "./pages/noMatch/NoMatchPage";
@@ -45,6 +46,7 @@ function App() {
 					<Route path="/admin/student/:studentId/edit" element={<EditStudentPage />} />
 					<Route path="/admin/courses" element={<CoursesPage />} />
 					<Route path="/admin/facilities" element={<FacilitiesPage />} />
+					<Route path="/admin/facility/new" element={<AddFacilitiesPage />} />
 					<Route path="/admin/groups" element={<GroupsPage />} />
 					<Route path="/admin/schedule" element={<SchedulePage />} />
 					<Route path="/admin/announcements" element={<AnnouncementsPage />} />
