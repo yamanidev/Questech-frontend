@@ -38,7 +38,7 @@ if (userRole === "ADMIN") {
 		{
 			icon: GroupIcon,
 			desc: "Groups",
-			route: "/admin/groups",
+			route: "/admin/levels",
 			badge: 0,
 		},
 		{
