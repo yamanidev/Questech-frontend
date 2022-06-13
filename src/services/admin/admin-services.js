@@ -76,6 +76,11 @@ class AdminServices {
 	deleteFacility(facilityId) {
 		return axios.delete(this.API_URL + `/admin/location/${facilityId}`, this.config);
 	}
+
+	// Groups
+	getGroups(level) {
+		return axios.get(this.API_URL + `/group/${level}`, this.config);
+	}
 }
 
 export default new AdminServices();
