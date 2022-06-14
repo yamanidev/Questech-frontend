@@ -81,6 +81,10 @@ class AdminServices {
 	getGroups(level) {
 		return axios.get(this.API_URL + `/group/${level}`, this.config);
 	}
+
+	addGroup(group) {
+		return axios.post(this.API_URL + "/group", group, this.config);
+	}
 }
 
 export default new AdminServices();
