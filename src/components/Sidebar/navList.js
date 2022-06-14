@@ -7,113 +7,115 @@ import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 import AnnouncementIcon from "@mui/icons-material/Announcement";
 import userService from "../../services/user/user-service";
 
-const userRole = userService.getUser().role;
+const user = userService.getUser();
 const navList = [];
 
-if (userRole === "ADMIN") {
-	navList.push(
-		{
-			icon: DashboardOutlined,
-			desc: "Dashboard",
-			route: "/admin/dashboard",
-			badge: 0,
-		},
-		{
-			icon: Person,
-			desc: "Users",
-			badge: 0,
-		},
-		{
-			icon: MenuBookIcon,
-			desc: "Courses",
-			route: "/admin/courses",
-			badge: 0,
-		},
-		{
-			icon: DomainIcon,
-			desc: "Facilities",
-			route: "/admin/facilities",
-			badge: 0,
-		},
-		{
-			icon: GroupIcon,
-			desc: "Groups",
-			route: "/admin/levels",
-			badge: 0,
-		},
-		{
-			icon: CalendarMonthIcon,
-			desc: "Schedule",
-			route: "/admin/schedule",
-			badge: 0,
-		},
-		{
-			icon: AnnouncementIcon,
-			desc: "Announcements",
-			route: "/admin/announcements",
-			badge: 0,
-		}
-	);
-} else if (userRole === "PROFESSOR") {
-	navList.push(
-		{
-			icon: DashboardOutlined,
-			desc: "Dashboard",
-			route: "/teacher/dashboard",
-			badge: 0,
-		},
-		{
-			icon: MenuBookIcon,
-			desc: "Courses",
-			route: "/teacher/courses",
-			badge: 0,
-		},
-		{
-			icon: DomainIcon,
-			desc: "Facilities",
-			route: "/teacher/facilities",
-			badge: 0,
-		},
-		{
-			icon: CalendarMonthIcon,
-			desc: "Schedule",
-			route: "/teacher/schedule",
-			badge: 0,
-		},
-		{
-			icon: AnnouncementIcon,
-			desc: "Announcements",
-			route: "/teacher/announcements",
-			badge: 0,
-		}
-	);
-} else if (userRole === "STUDENT") {
-	navList.push(
-		{
-			icon: DashboardOutlined,
-			desc: "Dashboard",
-			route: "/student/dashboard",
-			badge: 0,
-		},
-		{
-			icon: MenuBookIcon,
-			desc: "Courses",
-			route: "/student/courses",
-			badge: 0,
-		},
-		{
-			icon: CalendarMonthIcon,
-			desc: "Schedule",
-			route: "/student/schedule",
-			badge: 0,
-		},
-		{
-			icon: AnnouncementIcon,
-			desc: "Announcements",
-			route: "/student/announcements",
-			badge: 0,
-		}
-	);
+if (user) {
+	if (user.role === "ADMIN") {
+		navList.push(
+			{
+				icon: DashboardOutlined,
+				desc: "Dashboard",
+				route: "/admin/dashboard",
+				badge: 0,
+			},
+			{
+				icon: Person,
+				desc: "Users",
+				badge: 0,
+			},
+			{
+				icon: MenuBookIcon,
+				desc: "Courses",
+				route: "/admin/courses",
+				badge: 0,
+			},
+			{
+				icon: DomainIcon,
+				desc: "Facilities",
+				route: "/admin/facilities",
+				badge: 0,
+			},
+			{
+				icon: GroupIcon,
+				desc: "Groups",
+				route: "/admin/levels",
+				badge: 0,
+			},
+			{
+				icon: CalendarMonthIcon,
+				desc: "Schedule",
+				route: "/admin/schedule",
+				badge: 0,
+			},
+			{
+				icon: AnnouncementIcon,
+				desc: "Announcements",
+				route: "/admin/announcements",
+				badge: 0,
+			}
+		);
+	} else if (user.role === "PROFESSOR") {
+		navList.push(
+			{
+				icon: DashboardOutlined,
+				desc: "Dashboard",
+				route: "/teacher/dashboard",
+				badge: 0,
+			},
+			{
+				icon: MenuBookIcon,
+				desc: "Courses",
+				route: "/teacher/courses",
+				badge: 0,
+			},
+			{
+				icon: DomainIcon,
+				desc: "Facilities",
+				route: "/teacher/facilities",
+				badge: 0,
+			},
+			{
+				icon: CalendarMonthIcon,
+				desc: "Schedule",
+				route: "/teacher/schedule",
+				badge: 0,
+			},
+			{
+				icon: AnnouncementIcon,
+				desc: "Announcements",
+				route: "/teacher/announcements",
+				badge: 0,
+			}
+		);
+	} else if (user.role === "STUDENT") {
+		navList.push(
+			{
+				icon: DashboardOutlined,
+				desc: "Dashboard",
+				route: "/student/dashboard",
+				badge: 0,
+			},
+			{
+				icon: MenuBookIcon,
+				desc: "Courses",
+				route: "/student/courses",
+				badge: 0,
+			},
+			{
+				icon: CalendarMonthIcon,
+				desc: "Schedule",
+				route: "/student/schedule",
+				badge: 0,
+			},
+			{
+				icon: AnnouncementIcon,
+				desc: "Announcements",
+				route: "/student/announcements",
+				badge: 0,
+			}
+		);
+	}
 }
 
 export default navList;
