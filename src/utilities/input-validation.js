@@ -17,4 +17,8 @@ function validatePhoneNumber(phoneNumber) {
 	return pattern.test(phoneNumber);
 }
 
-export { validateName, validateEmail, validatePhoneNumber };
+function validateInteger(value) {
+	return /^\d+$/.test(value);
+}
+
+export { validateName, validateEmail, validatePhoneNumber, validateInteger };
