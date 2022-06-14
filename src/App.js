@@ -21,6 +21,8 @@ import NoMatchPage from "./pages/noMatch/NoMatchPage";
 import ProfilePage from "./pages/profile/ProfilePage";
 import SchedulePage from "./pages/schedule/SchedulePage";
 import SettingsPage from "./pages/settings/SettingsPage";
+import GroupPage from "./pages/admin/group/GroupPage";
+import LevelsPage from "./pages/admin/levels/LevelsPage";
 
 function App() {
 	return (
@@ -47,7 +49,9 @@ function App() {
 					<Route path="/admin/courses" element={<CoursesPage />} />
 					<Route path="/admin/facilities" element={<FacilitiesPage />} />
 					<Route path="/admin/facility/new" element={<AddFacilitiesPage />} />
-					<Route path="/admin/groups" element={<GroupsPage />} />
+					<Route path="/admin/levels" element={<LevelsPage />} />
+					<Route path="/admin/:level/groups" element={<GroupsPage />} />
+					<Route path="/admin/:level/group/:groupId" element={<GroupPage />} />
 					<Route path="/admin/schedule" element={<SchedulePage />} />
 					<Route path="/admin/announcements" element={<AnnouncementsPage />} />
 				</Route>
