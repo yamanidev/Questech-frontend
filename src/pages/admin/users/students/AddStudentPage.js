@@ -176,7 +176,7 @@ function AddStudentPage() {
 							variant="contained"
 							color="error"
 							component={Link}
-							to="/admin/teachers">
+							to="/admin/students">
 							Cancel
 						</Button>
 						<Button
