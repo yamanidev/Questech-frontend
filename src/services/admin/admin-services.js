@@ -82,8 +82,31 @@ class AdminServices {
 		return axios.get(this.API_URL + `/group/${level}`, this.config);
 	}
 
+	getGroupStudents(level, groupId) {
+		return axios.get(this.API_URL + `/group/${level}/${groupId}/student`, this.config);
+	}
+
 	addGroup(group) {
 		return axios.post(this.API_URL + "/group", group, this.config);
+	}
+
+	addStudentsToGroup(level, groupId, studentIds) {
+		return axios.post(
+			this.API_URL + `/group/${level}/${groupId}/student`,
+			studentIds,
+			this.config
+		);
+	}
+
+	deleteGroup(level, groupId) {
+		return axios.delete(this.API_URL + `/group/${level}/${groupId}`, this.config);
+	}
+
+	deleteGroupStudent(level, groupId, studentId) {
+		axios.delete(
+			this.API_URL + `/group/${level}/${groupId}/student/studentid=${studentId}`,
+			this.config
+		);
 	}
 }
 
