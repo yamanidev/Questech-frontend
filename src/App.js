@@ -23,6 +23,7 @@ import SchedulePage from "./pages/schedule/SchedulePage";
 import SettingsPage from "./pages/settings/SettingsPage";
 import GroupPage from "./pages/admin/group/GroupPage";
 import LevelsPage from "./pages/admin/levels/LevelsPage";
+import AddGroupStudentsPage from "./pages/admin/addGroupStudents/AddGroupStudentsPage";
 
 function App() {
 	return (
@@ -52,6 +53,10 @@ function App() {
 					<Route path="/admin/levels" element={<LevelsPage />} />
 					<Route path="/admin/:level/groups" element={<GroupsPage />} />
 					<Route path="/admin/:level/group/:groupId" element={<GroupPage />} />
+					<Route
+						path="/admin/:level/group/:groupId/add"
+						element={<AddGroupStudentsPage />}
+					/>
 					<Route path="/admin/schedule" element={<SchedulePage />} />
 					<Route path="/admin/announcements" element={<AnnouncementsPage />} />
 				</Route>
