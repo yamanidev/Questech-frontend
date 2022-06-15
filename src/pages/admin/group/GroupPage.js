@@ -1,5 +1,6 @@
 import React from "react";
 import { useParams } from "react-router-dom";
+import GroupStudentsTable from "../../../components/admin/GroupStudentsTable/GroupStudentsTable";
 
 function GroupPage() {
 	const { groupId, level } = useParams();
@@ -10,6 +11,9 @@ function GroupPage() {
 				Group {groupId}
 				<span className="ml-5 text-2xl">({level})</span>
 			</h1>
+			<div className="h-[600px]">
+				<GroupStudentsTable level={level} groupId={groupId} />
+			</div>
 		</div>
 	);
 }
