@@ -93,6 +93,7 @@ function AddStudentPage() {
 				<div className="pl-10 pt-10 xl:pt-20 flex flex-col gap-3">
 					<div className="max-w-md flex gap-4">
 						<TextField
+							autoFocus
 							fullWidth
 							error={errors.firstNameError}
 							label="First Name"
