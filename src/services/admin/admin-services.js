@@ -102,11 +102,13 @@ class AdminServices {
 		return axios.delete(this.API_URL + `/group/${level}/${groupId}`, this.config);
 	}
 
-	deleteGroupStudent(level, groupId, studentId) {
-		axios.delete(
-			this.API_URL + `/group/${level}/${groupId}/student/studentid=${studentId}`,
-			this.config
-		);
+	deleteGroupStudents(level, groupId, studentIds) {
+		return axios.delete(this.API_URL + `/group/${level}/${groupId}/student`, {
+			data: studentIds,
+			headers: {
+				Authorization: `Bearer ${this.token}`,
+			},
+		});
 	}
 }
 
