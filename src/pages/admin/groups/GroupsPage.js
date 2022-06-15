@@ -9,7 +9,7 @@ import { validateInteger } from "../../../utilities/input-validation";
 
 function GroupsPage() {
 	const [groups, setGroups] = useState([]);
-	const [groupNumber, setGroupNumber] = useState();
+	const [groupNumber, setGroupNumber] = useState("");
 	const [groupNumberError, setGroupNumberError] = useState(false);
 	const { level } = useParams();
 
@@ -38,17 +38,39 @@ function GroupsPage() {
 			.catch((error) => {
 				console.log(error);
 			});
+		setGroupNumber("");
 	});
+
+	function onDelete(groupId) {
+		adminServices
+			.deleteGroup(level, groupId)
+			.then((response) => {
+				console.log("delete group response:", response);
+				fetchGroups();
+			})
+			.catch((error) => {
+				console.log(error);
+			});
+	}
+
+	function validateGroupNumber(groupNumber) {
+		return (
+			groupNumber &&
+			validateInteger(groupNumber) &&
+			!groups.find((group) => group.groupId.id === parseInt(groupNumber))
+		);
+	}
 
 	return (
 		<div className="container">
 			<h1 className="mb-10 text-6xl font-semibold">{level} Groups</h1>
 			<Stack spacing={1} direction="row" marginY={4}>
 				<TextField
+					value={groupNumber}
 					error={groupNumberError}
 					label="Group number"
 					onChange={(event) => {
-						// setGroupNumberError();
+						setGroupNumberError(!validateGroupNumber(event.target.value));
 						setGroupNumber(event.target.value);
 					}}
 				/>
@@ -60,11 +82,11 @@ function GroupsPage() {
 							id: groupNumber,
 						},
 					})}
-					disabled={!(groupNumber && validateInteger(groupNumber))}>
-					Add
+					disabled={!validateGroupNumber(groupNumber)}>
+					Add Group
 				</Button>
 			</Stack>
-			<GroupsList groups={groups} level={level} />
+			<GroupsList groups={groups} level={level} onDelete={onDelete} />
 		</div>
 	);
 }
