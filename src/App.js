@@ -24,6 +24,8 @@ import SettingsPage from "./pages/settings/SettingsPage";
 import GroupPage from "./pages/admin/group/GroupPage";
 import LevelsPage from "./pages/admin/levels/LevelsPage";
 import AddGroupStudentsPage from "./pages/admin/addGroupStudents/AddGroupStudentsPage";
+import AddCoursePage from "./pages/admin/courses/AddCoursePage";
+import EditCoursePage from "./pages/admin/courses/EditCoursePage";
 
 function App() {
 	return (
@@ -48,6 +50,8 @@ function App() {
 					<Route path="/admin/student/new" element={<AddStudentPage />} />
 					<Route path="/admin/student/:studentId/edit" element={<EditStudentPage />} />
 					<Route path="/admin/courses" element={<CoursesPage />} />
+					<Route path="/admin/course/new" element={<AddCoursePage />} />
+					<Route path="/admin/course/:courseId/edit" element={<EditCoursePage />} />
 					<Route path="/admin/facilities" element={<FacilitiesPage />} />
 					<Route path="/admin/facility/new" element={<AddFacilitiesPage />} />
 					<Route path="/admin/levels" element={<LevelsPage />} />

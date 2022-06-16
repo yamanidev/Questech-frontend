@@ -1,9 +1,13 @@
 import React from "react";
+import CoursesTable from "../../../components/admin/CoursesTable/CoursesTable";
 
 function CoursesPageAdmin() {
 	return (
 		<div className="container">
-			<h1 className="mb-10 text-6xl font-semibold">Courses admin</h1>
+			<h1 className="mb-10 text-6xl font-semibold">Courses</h1>
+			<div className="h-[600px]">
+				<CoursesTable />
+			</div>
 		</div>
 	);
 }
