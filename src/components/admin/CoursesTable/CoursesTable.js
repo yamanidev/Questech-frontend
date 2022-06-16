@@ -69,6 +69,7 @@ function CoursesTable() {
 		} else {
 			deleteCourse(clickedCourse);
 		}
+		setDeleteModalOpened(false);
 	};
 
 	const columns = [
