@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./homePage.css";
+import logo from "../../assets/logo.png";
 
 function HomePage() {
 	return (
@@ -8,8 +9,8 @@ function HomePage() {
 			<header>
 				<div className="container">
 					<nav className="py-3">
-						<Link to="/" className="text-xl font-black text-primary-blue">
-							Logo
+						<Link to="/">
+							<img src={logo} alt="" className="h-12" />
 						</Link>
 					</nav>
 				</div>

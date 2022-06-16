@@ -8,6 +8,7 @@ import Typography from "@mui/material/Typography";
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import authService from "../../services/auth/auth-service";
+import logo from "../../assets/logo.png";
 
 function Appbar() {
 	const navigate = useNavigate();
@@ -29,7 +30,9 @@ function Appbar() {
 		<AppBar position="fixed" sx={{ backgroundColor: "#003278" }}>
 			<Toolbar className="container">
 				<Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-					<Link to="/">Logo</Link>
+					<Link to="/">
+						<img src={logo} alt="" className="block h-16 w-16" />
+					</Link>
 				</Typography>
 				<div>
 					<IconButton
