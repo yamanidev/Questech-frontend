@@ -110,6 +110,27 @@ class AdminServices {
 			},
 		});
 	}
+
+	// Courses
+	getCourses() {
+		return axios.get(this.API_URL + "/module", this.config);
+	}
+
+	getCourse(courseId) {
+		return axios.get(this.API_URL + `/module/${courseId}`, this.config);
+	}
+
+	addCourse(course) {
+		return axios.post(this.API_URL + "/module", course, this.config);
+	}
+
+	editCourse(courseId, course) {
+		return axios.put(this.API_URL + `/module/${courseId}`, course, this.config);
+	}
+
+	deleteCourse(codeName) {
+		return axios.delete(this.API_URL + `/module/${codeName}`, this.config);
+	}
 }
 
 export default new AdminServices();
