@@ -5,11 +5,11 @@ import MenuItem from "@mui/material/MenuItem";
 import Select from "@mui/material/Select";
 import Stack from "@mui/material/Stack";
 import TextField from "@mui/material/TextField";
-import React, { useState, useCallback } from "react";
+import React, { useCallback, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import courseSVG from "../../../assets/course.svg";
-import { validateName, validateInteger } from "../../../utilities/input-validation";
 import adminServices from "../../../services/admin/admin-services";
+import { validateInteger } from "../../../utilities/input-validation";
 
 function AddCoursePage() {
 	const [codeName, setCodeName] = useState("");
