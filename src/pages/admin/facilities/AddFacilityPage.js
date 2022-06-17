@@ -5,16 +5,14 @@ import MenuItem from "@mui/material/MenuItem";
 import Select from "@mui/material/Select";
 import Stack from "@mui/material/Stack";
 import TextField from "@mui/material/TextField";
-import React, { useState, useCallback } from "react";
+import React, { useCallback, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import facilitiesSVG from "../../../assets/facilities.svg";
-import { validateName } from "../../../utilities/input-validation";
 import adminServices from "../../../services/admin/admin-services";
 
 function AddFacilityPage() {
 	const [facilityName, setFacilityName] = useState("");
 	const [facilityType, setFacilityType] = useState("");
-	const [facilityNameError, setFacilityNameError] = useState(false);
 
 	const navigate = useNavigate();
 
@@ -23,8 +21,7 @@ function AddFacilityPage() {
 	};
 
 	function validateFields() {
-		if (!facilityName || !facilityType) return false;
-		return !facilityNameError;
+		return facilityName && facilityType;
 	}
 
 	function getFields() {
@@ -57,11 +54,9 @@ function AddFacilityPage() {
 						<TextField
 							fullWidth
 							autoFocus
-							error={facilityNameError}
 							label="Facility name"
 							onChange={(event) => {
 								setFacilityName(event.target.value);
-								setFacilityNameError(!validateName(event.target.value));
 							}}
 						/>
 					</div>
