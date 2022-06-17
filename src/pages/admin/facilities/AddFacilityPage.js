@@ -56,11 +56,12 @@ function AddFacilityPage() {
 					<div className="max-w-md flex gap-4">
 						<TextField
 							fullWidth
+							autoFocus
 							error={facilityNameError}
 							label="Facility name"
 							onChange={(event) => {
 								setFacilityName(event.target.value);
-								setFacilityNameError(!validateName(facilityName));
+								setFacilityNameError(!validateName(event.target.value));
 							}}
 						/>
 					</div>
