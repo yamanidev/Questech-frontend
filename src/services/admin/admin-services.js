@@ -116,6 +116,10 @@ class AdminServices {
 		return axios.get(this.API_URL + "/module", this.config);
 	}
 
+	getLevelCourses(level) {
+		return axios.get(this.API_URL + `/module/promo?promo=${level}`, this.config);
+	}
+
 	getCourse(courseId) {
 		return axios.get(this.API_URL + `/module/${courseId}`, this.config);
 	}
@@ -130,6 +134,19 @@ class AdminServices {
 
 	deleteCourse(codeName) {
 		return axios.delete(this.API_URL + `/module/${codeName}`, this.config);
+	}
+
+	// Schedule
+	getSchedule(level, groupId, day) {
+		return axios.get(this.API_URL + `/planning/${level}/${groupId}/${day}`, this.config);
+	}
+
+	getAvailableTeachers(day, time) {
+		return axios.get(this.API_URL + `/resources/professors/${day}/${time}`, this.config);
+	}
+
+	getAvailableFacilities(day, time) {
+		return axios.get(this.API_URL + `/resources/location/${day}/${time}`, this.config);
 	}
 }
 
