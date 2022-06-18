@@ -95,6 +95,7 @@ function TeachersTable() {
 			.then((res) => {
 				console.log(res);
 				fetchTeachers();
+				setImportModalOpened(false);
 			})
 			.catch((error) => {
 				console.log(error);
