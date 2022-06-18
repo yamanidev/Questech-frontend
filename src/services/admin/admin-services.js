@@ -148,6 +148,21 @@ class AdminServices {
 	getAvailableFacilities(day, time) {
 		return axios.get(this.API_URL + `/resources/location/${day}/${time}`, this.config);
 	}
+
+	addSession(level, groupId, day, session) {
+		return axios.post(
+			this.API_URL + `/admin/session/${day}/${level}/${groupId}`,
+			session,
+			this.config
+		);
+	}
+
+	clearDay(level, groupId, day) {
+		return axios.delete(
+			this.API_URL + `/admin/session/${day}/${level}/${groupId}`,
+			this.config
+		);
+	}
 }
 
 export default new AdminServices();
