@@ -102,6 +102,7 @@ function StudentsTable() {
 			})
 			.catch((error) => {
 				console.log(error);
+				window.location.reload(false);
 			});
 	};
 
