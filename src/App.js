@@ -28,6 +28,7 @@ import AddCoursePage from "./pages/admin/courses/AddCoursePage";
 import EditCoursePage from "./pages/admin/courses/EditCoursePage";
 import CoursePageTeacher from "./pages/teacher/courses/CoursePageTeacher";
 import AddFilePage from "./pages/teacher/courses/AddFilePage";
+import CoursePageStudent from "./pages/student/courses/CoursePageStudent";
 
 function App() {
 	return (
@@ -80,6 +81,7 @@ function App() {
 				<Route element={<RequireRole role="STUDENT" />}>
 					<Route path="/student/dashboard" element={<DashboardPage />} />
 					<Route path="/student/courses" element={<CoursesPage />} />
+					<Route path="/student/course/:codeName" element={<CoursePageStudent />} />
 					<Route path="/student/schedule" element={<SchedulePage />} />
 					<Route path="/student/announcements" element={<AnnouncementsPage />} />
 				</Route>
