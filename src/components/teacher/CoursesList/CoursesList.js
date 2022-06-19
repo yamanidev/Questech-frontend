@@ -3,6 +3,7 @@ import CoursesListItem from "./CoursesListItem";
 
 function CoursesList(props) {
 	const { courses } = props;
+
 	return (
 		<div className="flex flex-wrap gap-10">
 			{courses.map((course, index) => (
