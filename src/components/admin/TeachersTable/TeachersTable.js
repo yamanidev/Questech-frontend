@@ -99,6 +99,8 @@ function TeachersTable() {
 			})
 			.catch((error) => {
 				console.log(error);
+				fetchTeachers();
+				setImportModalOpened(false);
 			});
 	};
 
@@ -188,7 +190,7 @@ function TeachersTable() {
 						}}
 						initialState={{
 							sorting: {
-								sortModel: [{ field: "id", sort: "asc" }],
+								sortModel: [{ field: "familyname", sort: "asc" }],
 							},
 						}}
 						checkboxSelection={true}
