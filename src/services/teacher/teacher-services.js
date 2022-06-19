@@ -18,6 +18,7 @@ class TeacherServices {
 		return axios.get(this.API_URL + `/module/${codeName}`, this.config);
 	}
 
+	// Course files
 	getCourseFiles(codeName, type) {
 		return axios.get(this.API_URL + `/professor/module/${codeName}/${type}`, this.config);
 	}
@@ -26,6 +27,13 @@ class TeacherServices {
 		return axios.post(
 			this.API_URL + `/module/upload?title=${title}&type=${type}&moduleCode=${codeName}`,
 			formData,
+			this.config
+		);
+	}
+
+	deleteFile(fileId, type, codeName) {
+		return axios.delete(
+			this.API_URL + `/professor/${codeName}/${type}/${fileId}`,
 			this.config
 		);
 	}
