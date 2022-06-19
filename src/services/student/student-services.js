@@ -31,6 +31,11 @@ class StudentServices {
 			responseType: "blob",
 		});
 	}
+
+	// Schedule
+	getSchedule(day, level, groupId) {
+		return axios.get(this.API_URL + `/planning/${level}/${groupId}/${day}`, this.config);
+	}
 }
 
 export default new StudentServices();
