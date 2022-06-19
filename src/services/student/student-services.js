@@ -9,8 +9,27 @@ class StudentServices {
 		},
 	};
 
+	// Courses
 	getCourses(level) {
 		return axios.get(this.API_URL + `/module/promo?promo=${level}`, this.config);
+	}
+
+	getCourse(codeName) {
+		return axios.get(this.API_URL + `/module/${codeName}`, this.config);
+	}
+
+	// Course files
+	getCourseFiles(codeName, type) {
+		return axios.get(this.API_URL + `/student/module/${codeName}/${type}`, this.config);
+	}
+
+	getFile(fileName, type) {
+		return axios.get(this.API_URL + `/student/${type}/${fileName}`, {
+			headers: {
+				Authorization: `Bearer ${this.token}`,
+			},
+			responseType: "blob",
+		});
 	}
 }
 
