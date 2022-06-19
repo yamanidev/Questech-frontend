@@ -31,6 +31,15 @@ class TeacherServices {
 		);
 	}
 
+	getFile(fileName, type) {
+		return axios.get(this.API_URL + `/student/${type}/${fileName}`, {
+			headers: {
+				Authorization: `Bearer ${this.token}`,
+			},
+			responseType: "blob",
+		});
+	}
+
 	deleteFile(fileId, type, codeName) {
 		return axios.delete(
 			this.API_URL + `/professor/${codeName}/${type}/${fileId}`,

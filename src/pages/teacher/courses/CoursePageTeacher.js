@@ -1,18 +1,26 @@
 import { Button } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
+import LoadingSpinner from "../../../components/LoadingSpinner/LoadingSpinner";
+import FilesList from "../../../components/teacher/FilesList/FilesList";
 import teacherServices from "../../../services/teacher/teacher-services";
 
 function CoursePageTeacher() {
-	const { codeName } = useParams();
+	const [lessonFiles, setLessonFiles] = useState({});
+	const [TDFiles, setTDFiles] = useState({});
+	const [TPFiles, setTPFiles] = useState({});
 	const [course, setCourse] = useState({});
+	const [loading, setLoading] = useState(true);
+
+	const { codeName } = useParams();
 
 	useEffect(() => {
 		getCurrentCourse();
+		getFiles();
 	}, []);
 
 	function getCurrentCourse() {
-		return teacherServices
+		teacherServices
 			.getCourse(codeName)
 			.then((response) => {
 				setCourse(response.data);
@@ -22,12 +30,64 @@ function CoursePageTeacher() {
 			});
 	}
 
+	function getFiles() {
+		teacherServices
+			.getCourseFiles(codeName, "COURSE")
+			.then((response) => {
+				setLessonFiles(response.data);
+				teacherServices
+					.getCourseFiles(codeName, "TD")
+					.then((response) => {
+						setTDFiles(response.data);
+						teacherServices
+							.getCourseFiles(codeName, "TP")
+							.then((response) => {
+								setTPFiles(response.data);
+								setLoading(false);
+							})
+							.catch((error) => {
+								console.log(error);
+							});
+					})
+					.catch((error) => {
+						console.log(error);
+					});
+			})
+			.catch((error) => {
+				console.log(error);
+			});
+	}
+
+	function onConfirmDelete(fileId, type) {
+		teacherServices
+			.deleteFile(fileId, type, codeName)
+			.then((response) => {
+				getFiles();
+			})
+			.catch((error) => {
+				console.log(error);
+			});
+	}
+
 	return (
-		<div className="container">
+		<div className="container relative">
 			<div className="">
-				<h1 className="mb-5 text-6xl font-semibold">{course.detailedName}</h1>
-				<h2 className="text-4xl font-semibold">{course.code}</h2>
-				<h3 className="text-3xl font-semibold">{course.promo}</h3>
+				<div className="mb-5 flex justify-between">
+					<h1 className="text-6xl font-semibold">{course.detailedName}</h1>
+					<Button
+						variant="contained"
+						color="secondary"
+						component={Link}
+						to="/teacher/courses">
+						Go back
+					</Button>
+				</div>
+				<div className="flex flex-col gap-3">
+					<h2 className="text-4xl font-semibold">{course.code}</h2>
+					<h2 className="text-3xl font-semibold">{course.promo}</h2>
+					<p className="text-2xl">Semester {course.semester}</p>
+					<p className="text-2xl">Coefficient: {course.coefficient}</p>
+				</div>
 			</div>
 			<div className="mt-10 flex justify-end">
 				<Button
@@ -37,6 +97,19 @@ function CoursePageTeacher() {
 					Add new file
 				</Button>
 			</div>
+			{loading ? (
+				<LoadingSpinner />
+			) : (
+				<div className="flex flex-col gap-20">
+					<FilesList
+						title="Lessons"
+						files={lessonFiles}
+						onConfirmDelete={onConfirmDelete}
+					/>
+					<FilesList title="TD" files={TDFiles} onConfirmDelete={onConfirmDelete} />
+					<FilesList title="TP" files={TPFiles} onConfirmDelete={onConfirmDelete} />
+				</div>
+			)}
 		</div>
 	);
 }
