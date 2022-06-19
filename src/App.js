@@ -26,6 +26,8 @@ import LevelsPage from "./pages/admin/levels/LevelsPage";
 import AddGroupStudentsPage from "./pages/admin/addGroupStudents/AddGroupStudentsPage";
 import AddCoursePage from "./pages/admin/courses/AddCoursePage";
 import EditCoursePage from "./pages/admin/courses/EditCoursePage";
+import CoursePageTeacher from "./pages/teacher/courses/CoursePageTeacher";
+import AddFilePage from "./pages/teacher/courses/AddFilePage";
 
 function App() {
 	return (
@@ -68,6 +70,8 @@ function App() {
 				<Route element={<RequireRole role="PROFESSOR" />}>
 					<Route path="/teacher/dashboard" element={<DashboardPage />} />
 					<Route path="/teacher/courses" element={<CoursesPage />} />
+					<Route path="/teacher/course/:codeName" element={<CoursePageTeacher />} />
+					<Route path="/teacher/course/:codeName/new" element={<AddFilePage />} />
 					<Route path="/teacher/facilities" element={<FacilitiesPage />} />
 					<Route path="/teacher/schedule" element={<SchedulePage />} />
 					<Route path="/teacher/announcements" element={<AnnouncementsPage />} />
