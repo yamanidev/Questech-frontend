@@ -5,10 +5,10 @@ import MenuItem from "@mui/material/MenuItem";
 import Select from "@mui/material/Select";
 import Stack from "@mui/material/Stack";
 import TextField from "@mui/material/TextField";
-import React, { useCallback, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import addFileSVG from "../../../assets/add-file.svg";
-import adminServices from "../../../services/admin/admin-services";
+import teacherServices from "../../../services/teacher/teacher-services";
 
 function AddFilePage() {
 	const [title, setTitle] = useState("");
@@ -16,6 +16,8 @@ function AddFilePage() {
 	const [fileSelected, setFileSelected] = useState(false);
 
 	const { codeName } = useParams();
+
+	const navigate = useNavigate();
 
 	const formData = useRef(new FormData());
 
@@ -29,6 +31,17 @@ function AddFilePage() {
 		return title && type && fileSelected;
 	}
 
+	function addFile() {
+		teacherServices
+			.addFile(codeName, title, type, formData.current)
+			.then((response) => {
+				console.log(response);
+			})
+			.catch((error) => {
+				console.log(error);
+			});
+	}
+
 	return (
 		<div className="container">
 			<h1 className="mb-10 text-6xl font-semibold">Add New File</h1>
@@ -37,11 +50,10 @@ function AddFilePage() {
 					<div className="max-w-md flex gap-4">
 						<TextField
 							fullWidth
-							value={title}
 							autoFocus
 							label="Title"
 							onChange={(event) => {
-								setTitle(event.target.value);
+								setTitle(encodeURIComponent(event.target.value.trim()));
 							}}
 						/>
 					</div>
@@ -56,7 +68,7 @@ function AddFilePage() {
 								onChange={(event) => {
 									setType(event.target.value);
 								}}>
-								<MenuItem value="COURS">Lesson</MenuItem>
+								<MenuItem value="COURSE">Lesson</MenuItem>
 								<MenuItem value="TD">TD</MenuItem>
 								<MenuItem value="TP">TP</MenuItem>
 							</Select>
@@ -66,7 +78,6 @@ function AddFilePage() {
 						<input
 							type="file"
 							name="file_upload"
-							accept=".xlsx"
 							id="upload-button"
 							onChange={onFileChange}
 						/>
@@ -81,7 +92,10 @@ function AddFilePage() {
 						</Button>
 						<Button
 							variant="contained"
-							// onClick={addFacility(getFields())}
+							onClick={() => {
+								addFile();
+								navigate(`/teacher/course/${codeName}`);
+							}}
 							disabled={!validateFields()}>
 							Upload
 						</Button>

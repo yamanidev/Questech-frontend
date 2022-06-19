@@ -18,6 +18,14 @@ class TeacherServices {
 		return axios.get(this.API_URL + `/module/${codeName}`, this.config);
 	}
 
+	addFile(codeName, title, type, formData) {
+		return axios.post(
+			this.API_URL + `/module/upload?title=${title}&type=${type}&moduleCode=${codeName}`,
+			formData,
+			this.config
+		);
+	}
+
 	// Schedule
 	getSchedule(day, professorId) {
 		return axios.get(this.API_URL + `/planning/${professorId}/${day}`, this.config);
