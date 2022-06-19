@@ -18,6 +18,10 @@ class TeacherServices {
 		return axios.get(this.API_URL + `/module/${codeName}`, this.config);
 	}
 
+	getCourseFiles(codeName, type) {
+		return axios.get(this.API_URL + `/professor/module/${codeName}/${type}`, this.config);
+	}
+
 	addFile(codeName, title, type, formData) {
 		return axios.post(
 			this.API_URL + `/module/upload?title=${title}&type=${type}&moduleCode=${codeName}`,
