@@ -50,7 +50,6 @@ function AddFilePage() {
 					<div className="max-w-md flex gap-4">
 						<TextField
 							fullWidth
-							autoFocus
 							label="Title"
 							onChange={(event) => {
 								setTitle(encodeURIComponent(event.target.value.trim()));
