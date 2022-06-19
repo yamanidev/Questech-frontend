@@ -4,7 +4,7 @@ import userService from "../../../services/user/user-service";
 
 function SchedulePageTeacher() {
 	return (
-		<div className="container">
+		<div className="container pb-20">
 			<h1 className="mb-10 text-6xl font-semibold">Schedule</h1>
 			<div className="mb-5 flex justify-end gap-8">
 				<div className="flex justify-center items-center">
