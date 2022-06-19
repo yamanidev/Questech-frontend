@@ -4,7 +4,7 @@ import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import Modal from "@mui/material/Modal";
 import Select from "@mui/material/Select";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import adminServices from "../../../services/admin/admin-services";
 import "./modal.css";
 import ScheduleTimeSlot from "./ScheduleTimeSlot";
@@ -27,11 +27,6 @@ function AdminScheduleColumn(props) {
 	const [availableFacilities, setAvailableFacilities] = useState([]);
 	const [fetchingTeachers, setFetchingTeachers] = useState(true);
 	const [fetchingFacilities, setFetchingFacilities] = useState(true);
-
-	useEffect(() => {
-		// Checking for empty objects
-		// console.log(daySchedule);
-	}, []);
 
 	function getAvailableTeachers(time) {
 		adminServices
