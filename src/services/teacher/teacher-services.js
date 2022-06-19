@@ -22,6 +22,11 @@ class TeacherServices {
 	getSchedule(day, professorId) {
 		return axios.get(this.API_URL + `/planning/${professorId}/${day}`, this.config);
 	}
+
+	// Facilities
+	getAvailableFacilities(day, time) {
+		return axios.get(this.API_URL + `/resources/location/${day}/${time}`, this.config);
+	}
 }
 
 export default new TeacherServices();
