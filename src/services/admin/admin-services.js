@@ -120,16 +120,12 @@ class AdminServices {
 		return axios.get(this.API_URL + `/module/promo?promo=${level}`, this.config);
 	}
 
-	getCourse(courseId) {
-		return axios.get(this.API_URL + `/module/${courseId}`, this.config);
-	}
-
 	addCourse(course) {
 		return axios.post(this.API_URL + "/module", course, this.config);
 	}
 
-	editCourse(courseId, course) {
-		return axios.put(this.API_URL + `/module/${courseId}`, course, this.config);
+	editCourse(codeName, course) {
+		return axios.put(this.API_URL + `/module/${codeName}`, course, this.config);
 	}
 
 	deleteCourse(codeName) {
