@@ -67,7 +67,7 @@ function Sidebar() {
 						marginLeft: drawerOpen ? "0px" : "8px",
 						paddingBottom: "3px",
 					}}>
-					Questech
+					ESI E-Learn
 				</Typography>
 
 				<Button
