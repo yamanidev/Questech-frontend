@@ -1,4 +1,4 @@
-# ESI E-Learn web application front end
+# ESI-Learn web application's front end
 
 ## Project requirements
 
