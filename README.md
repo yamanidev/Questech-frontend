@@ -1,4 +1,14 @@
-# ESI-Learn web application's front end
+# About
+
+A school management web application for staff, teachers and students as well as an e-learn platform.
+
+## What I learned from the experience
+
+- Firsthand experience with a JavaScript framework/library, React and developing SPAs
+- Dividing an application into modular components/sub-components
+- First time working with a back end developer and communicating in terms of API endpoints
+- Routing and navigation with React Router v6
+- JWT authentication, although it was done poorly
 
 ## Project requirements
 
