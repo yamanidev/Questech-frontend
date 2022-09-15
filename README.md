@@ -2,6 +2,11 @@
 
 A school management web application for staff, teachers and students as well as an e-learn platform.
 
+## To do
+
+- Refactor authentication/authorization, it's a mess.
+- Opt for webpack aliases or baseUrl to avoid relative paths
+
 ## What I learned from the experience
 
 - Firsthand experience with a JavaScript framework/library, React and developing SPAs
