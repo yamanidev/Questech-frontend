@@ -3,7 +3,7 @@ import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import Select from "@mui/material/Select";
 import React, { useState } from "react";
-import AdminSchedule from "components/admin/AdminSchedule/AdminSchedule";
+import AdminSchedule from "components/admin/AdminSchedule";
 import adminServices from "services/admin/admin-services";
 
 function SchedulePageAdmin() {

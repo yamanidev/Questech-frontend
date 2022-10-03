@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { useParams } from "react-router-dom";
-import GroupsList from "components/admin/GroupsList/GroupsList";
+import GroupsList from "components/admin/GroupsList";
 import adminServices from "services/admin/admin-services";
 import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack";
