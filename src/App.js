@@ -23,7 +23,7 @@ import SchedulePage from "./pages/schedule/SchedulePage";
 import SettingsPage from "./pages/settings/SettingsPage";
 import GroupPage from "./pages/admin/group/GroupPage";
 import LevelsPage from "./pages/admin/levels/LevelsPage";
-import AddGroupStudentsPage from "./pages/admin/addGroupStudents/AddGroupStudentsPage";
+import AddGroupStudentsPage from "./pages/admin/AddGroupStudents";
 import AddCoursePage from "./pages/admin/courses/AddCoursePage";
 import EditCoursePage from "./pages/admin/courses/EditCoursePage";
 import CoursePageTeacher from "./pages/teacher/courses/CoursePageTeacher";
