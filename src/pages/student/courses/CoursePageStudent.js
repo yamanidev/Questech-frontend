@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import studentServices from "services/student/student-services";
 import LoadingSpinner from "components/LoadingSpinner";
-import FilesListStudent from "components/student/FilesList/FilesListStudent";
+import FilesListStudent from "components/student/FilesList";
 
 function CoursePageStudent() {
   const [lessonFiles, setLessonFiles] = useState({});

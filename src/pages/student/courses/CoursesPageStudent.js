@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import studentServices from "services/student/student-services";
 import userService from "services/user/user-service";
-import CoursesListStudent from "components/student/CoursesList/CoursesListStudent";
+import CoursesList from "components/student/CoursesList";
 import LoadingSpinner from "components/LoadingSpinner";
 
 function CoursesPageStudent() {
@@ -27,7 +27,7 @@ function CoursesPageStudent() {
   return (
     <div className="container relative">
       <h1 className="mb-10 text-6xl font-semibold">Courses</h1>
-      {loading ? <LoadingSpinner /> : <CoursesListStudent courses={courses} />}
+      {loading ? <LoadingSpinner /> : <CoursesList courses={courses} />}
     </div>
   );
 }
