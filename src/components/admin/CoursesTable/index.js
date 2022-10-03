@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from "react";
-import LoadingSpinner from "components/LoadingSpinner/LoadingSpinner";
+import LoadingSpinner from "components/LoadingSpinner";
 import { Edit } from "@mui/icons-material";
 import { Button, Stack, Typography } from "@mui/material";
 import Modal from "@mui/material/Modal";

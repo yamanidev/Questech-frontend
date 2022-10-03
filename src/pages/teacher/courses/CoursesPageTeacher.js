@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import LoadingSpinner from "components/LoadingSpinner/LoadingSpinner";
+import LoadingSpinner from "components/LoadingSpinner";
 import CoursesList from "components/teacher/CoursesList/CoursesList";
 import teacherServices from "services/teacher/teacher-services";
 import userService from "services/user/user-service";

@@ -11,7 +11,7 @@ import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import studentSVG from "assets/student.svg";
-import LoadingSpinner from "components/LoadingSpinner/LoadingSpinner";
+import LoadingSpinner from "components/LoadingSpinner";
 import adminServices from "services/admin/admin-services";
 import { formatDate } from "utilities/date-utils";
 import { validateEmail, validateName } from "utilities/input-validation";

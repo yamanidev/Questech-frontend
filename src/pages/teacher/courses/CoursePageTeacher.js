@@ -1,7 +1,7 @@
 import { Button } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import LoadingSpinner from "components/LoadingSpinner/LoadingSpinner";
+import LoadingSpinner from "components/LoadingSpinner";
 import FilesList from "components/teacher/FilesList/FilesList";
 import teacherServices from "services/teacher/teacher-services";
 

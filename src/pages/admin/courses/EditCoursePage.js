@@ -10,7 +10,7 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import courseSVG from "assets/course.svg";
 import { validateName, validateInteger } from "utilities/input-validation";
 import adminServices from "services/admin/admin-services";
-import LoadingSpinner from "components/LoadingSpinner/LoadingSpinner";
+import LoadingSpinner from "components/LoadingSpinner";
 
 function EditCoursePage() {
   const [codeName, setCodeName] = useState("");

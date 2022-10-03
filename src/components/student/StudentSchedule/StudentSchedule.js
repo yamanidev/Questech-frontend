@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import studentServices from "services/student/student-services";
 import StudentScheduleColumn from "./StudentScheduleColumn";
-import TimeColumn from "components/TimeColumn/TimeColumn";
+import TimeColumn from "components/TimeColumn";
 
 function StudentSchedule(props) {
   const { level, groupId } = props;

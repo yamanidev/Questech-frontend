@@ -4,7 +4,7 @@ import Modal from "@mui/material/Modal";
 import { DataGrid, GridActionsCellItem } from "@mui/x-data-grid";
 import React, { useCallback, useEffect, useState } from "react";
 import adminServices from "services/admin/admin-services";
-import LoadingSpinner from "components/LoadingSpinner/LoadingSpinner";
+import LoadingSpinner from "components/LoadingSpinner";
 import "./facilities-table.css";
 import FacilitiesToolbar from "./FacilitiesToolbar";
 
