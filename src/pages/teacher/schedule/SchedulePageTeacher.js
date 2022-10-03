@@ -1,5 +1,5 @@
 import React from "react";
-import TeacherSchedule from "components/teacher/TeacherSchedule/TeacherSchedule";
+import TeacherSchedule from "components/teacher/TeacherSchedule";
 import userService from "services/user/user-service";
 
 function SchedulePageTeacher() {
