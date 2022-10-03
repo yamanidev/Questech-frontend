@@ -6,16 +6,16 @@ import SchedulePageStudent from "../student/schedule/SchedulePageStudent";
 import SchedulePageTeacher from "../teacher/schedule/SchedulePageTeacher";
 
 function SchedulePage() {
-	const currentUserRole = userService.getUser().role;
+  const currentUserRole = userService.getUser().role;
 
-	if (currentUserRole === "ADMIN") {
-		return <SchedulePageAdmin />;
-	} else if (currentUserRole === "PROFESSOR") {
-		return <SchedulePageTeacher />;
-	} else if (currentUserRole === "STUDENT") {
-		return <SchedulePageStudent />;
-	}
-	return <Unauthorized />;
+  if (currentUserRole === "ADMIN") {
+    return <SchedulePageAdmin />;
+  } else if (currentUserRole === "PROFESSOR") {
+    return <SchedulePageTeacher />;
+  } else if (currentUserRole === "STUDENT") {
+    return <SchedulePageStudent />;
+  }
+  return <Unauthorized />;
 }
 
 export default SchedulePage;

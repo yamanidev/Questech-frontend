@@ -6,16 +6,16 @@ import DashboardPageStudent from "../student/dashboard/DashboardPageStudent";
 import DashboardPageTeacher from "../teacher/dashboard/DashboardPageTeacher";
 
 function DashboardPage() {
-	const currentUserRole = userService.getUser().role;
+  const currentUserRole = userService.getUser().role;
 
-	if (currentUserRole === "ADMIN") {
-		return <DashboardPageAdmin />;
-	} else if (currentUserRole === "PROFESSOR") {
-		return <DashboardPageTeacher />;
-	} else if (currentUserRole === "STUDENT") {
-		return <DashboardPageStudent />;
-	}
-	return <Unauthorized />;
+  if (currentUserRole === "ADMIN") {
+    return <DashboardPageAdmin />;
+  } else if (currentUserRole === "PROFESSOR") {
+    return <DashboardPageTeacher />;
+  } else if (currentUserRole === "STUDENT") {
+    return <DashboardPageStudent />;
+  }
+  return <Unauthorized />;
 }
 
 export default DashboardPage;

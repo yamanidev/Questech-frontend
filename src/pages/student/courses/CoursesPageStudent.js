@@ -5,31 +5,31 @@ import CoursesListStudent from "../../../components/student/CoursesList/CoursesL
 import LoadingSpinner from "../../../components/LoadingSpinner/LoadingSpinner";
 
 function CoursesPageStudent() {
-	const [courses, setCourses] = useState({});
-	const [loading, setLoading] = useState(true);
+  const [courses, setCourses] = useState({});
+  const [loading, setLoading] = useState(true);
 
-	useEffect(() => {
-		getCourses();
-	}, []);
+  useEffect(() => {
+    getCourses();
+  }, []);
 
-	function getCourses() {
-		studentServices
-			.getCourses(userService.getUser().group.groupId.promo)
-			.then((response) => {
-				setCourses(response.data);
-				setLoading(false);
-			})
-			.catch((error) => {
-				console.log(error);
-			});
-	}
+  function getCourses() {
+    studentServices
+      .getCourses(userService.getUser().group.groupId.promo)
+      .then((response) => {
+        setCourses(response.data);
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
 
-	return (
-		<div className="container relative">
-			<h1 className="mb-10 text-6xl font-semibold">Courses</h1>
-			{loading ? <LoadingSpinner /> : <CoursesListStudent courses={courses} />}
-		</div>
-	);
+  return (
+    <div className="container relative">
+      <h1 className="mb-10 text-6xl font-semibold">Courses</h1>
+      {loading ? <LoadingSpinner /> : <CoursesListStudent courses={courses} />}
+    </div>
+  );
 }
 
 export default CoursesPageStudent;

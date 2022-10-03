@@ -5,14 +5,14 @@ import FacilitiesPageAdmin from "../admin/facilities/FacilitiesPageAdmin";
 import FacilitiesPageTeacher from "../teacher/facilities/FacilitiesPageTeacher";
 
 function FacilitiesPage() {
-	const currentUserRole = userService.getUser().role;
+  const currentUserRole = userService.getUser().role;
 
-	if (currentUserRole === "ADMIN") {
-		return <FacilitiesPageAdmin />;
-	} else if (currentUserRole === "PROFESSOR") {
-		return <FacilitiesPageTeacher />;
-	}
-	return <Unauthorized />;
+  if (currentUserRole === "ADMIN") {
+    return <FacilitiesPageAdmin />;
+  } else if (currentUserRole === "PROFESSOR") {
+    return <FacilitiesPageTeacher />;
+  }
+  return <Unauthorized />;
 }
 
 export default FacilitiesPage;

@@ -4,60 +4,60 @@ import { DataGrid } from "@mui/x-data-grid";
 import LoadingSpinner from "../../LoadingSpinner/LoadingSpinner";
 
 function AvailableFacilitiesTable(props) {
-	const { day, time } = props;
-	const [facilities, setFacilities] = useState([]);
-	const [loading, setLoading] = useState(true);
+  const { day, time } = props;
+  const [facilities, setFacilities] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-	useEffect(() => {
-		fetchAvailableFacilities();
-	}, [day, time]);
+  useEffect(() => {
+    fetchAvailableFacilities();
+  }, [day, time]);
 
-	function fetchAvailableFacilities() {
-		teacherServices
-			.getAvailableFacilities(day, time)
-			.then((response) => {
-				setFacilities(response.data);
-				setLoading(false);
-			})
-			.catch((error) => {
-				console.log(error);
-			});
-	}
+  function fetchAvailableFacilities() {
+    teacherServices
+      .getAvailableFacilities(day, time)
+      .then((response) => {
+        setFacilities(response.data);
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
 
-	const columns = [
-		{
-			field: "name",
-			headerName: "Name",
-			minWidth: 100,
-			flex: 1,
-			editable: false,
-			hideable: false,
-		},
-		{
-			field: "type",
-			headerName: "Type",
-			flex: 1,
-			editable: false,
-		},
-	];
+  const columns = [
+    {
+      field: "name",
+      headerName: "Name",
+      minWidth: 100,
+      flex: 1,
+      editable: false,
+      hideable: false,
+    },
+    {
+      field: "type",
+      headerName: "Type",
+      flex: 1,
+      editable: false,
+    },
+  ];
 
-	return (
-		<>
-			{loading ? (
-				<LoadingSpinner />
-			) : (
-				<DataGrid
-					columns={columns}
-					rows={facilities}
-					initialState={{
-						sorting: {
-							sortModel: [{ field: "type", sort: "asc" }],
-						},
-					}}
-				/>
-			)}
-		</>
-	);
+  return (
+    <>
+      {loading ? (
+        <LoadingSpinner />
+      ) : (
+        <DataGrid
+          columns={columns}
+          rows={facilities}
+          initialState={{
+            sorting: {
+              sortModel: [{ field: "type", sort: "asc" }],
+            },
+          }}
+        />
+      )}
+    </>
+  );
 }
 
 export default AvailableFacilitiesTable;

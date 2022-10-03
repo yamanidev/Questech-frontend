@@ -6,16 +6,16 @@ import CoursesPageTeacher from "../teacher/courses/CoursesPageTeacher";
 import Unauthorized from "../Unauthorized/Unauthorized";
 
 function CoursesPage() {
-	const currentUserRole = userService.getUser().role;
+  const currentUserRole = userService.getUser().role;
 
-	if (currentUserRole === "ADMIN") {
-		return <CoursesPageAdmin />;
-	} else if (currentUserRole === "PROFESSOR") {
-		return <CoursesPageTeacher />;
-	} else if (currentUserRole === "STUDENT") {
-		return <CoursesPageStudent />;
-	}
-	return <Unauthorized />;
+  if (currentUserRole === "ADMIN") {
+    return <CoursesPageAdmin />;
+  } else if (currentUserRole === "PROFESSOR") {
+    return <CoursesPageTeacher />;
+  } else if (currentUserRole === "STUDENT") {
+    return <CoursesPageStudent />;
+  }
+  return <Unauthorized />;
 }
 
 export default CoursesPage;

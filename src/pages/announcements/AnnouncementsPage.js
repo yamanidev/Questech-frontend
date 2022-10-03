@@ -6,16 +6,16 @@ import AnnouncementsPageTeacher from "../teacher/announcements/AnnouncementsPage
 import Unauthorized from "../Unauthorized/Unauthorized";
 
 function AnnouncementsPage() {
-	const currentUserRole = userService.getUser().role;
+  const currentUserRole = userService.getUser().role;
 
-	if (currentUserRole === "ADMIN") {
-		return <AnnouncementsPageAdmin />;
-	} else if (currentUserRole === "PROFESSOR") {
-		return <AnnouncementsPageTeacher />;
-	} else if (currentUserRole === "STUDENT") {
-		return <AnnouncementsPageStudent />;
-	}
-	return <Unauthorized />;
+  if (currentUserRole === "ADMIN") {
+    return <AnnouncementsPageAdmin />;
+  } else if (currentUserRole === "PROFESSOR") {
+    return <AnnouncementsPageTeacher />;
+  } else if (currentUserRole === "STUDENT") {
+    return <AnnouncementsPageStudent />;
+  }
+  return <Unauthorized />;
 }
 
 export default AnnouncementsPage;

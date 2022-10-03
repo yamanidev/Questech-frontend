@@ -29,288 +29,288 @@ const dbs = ["BDD"];
 const sec = ["ISECI"];
 
 function CoursesListItemStudent(props) {
-	const { course } = props;
+  const { course } = props;
 
-	const navigate = useNavigate();
+  const navigate = useNavigate();
 
-	if (mathematics.includes(course.code))
-		return (
-			<div
-				onClick={() => {
-					navigate(`/student/course/${course.code}`);
-				}}
-				className="h-[400px] w-[300px] bg-[#e4e4e4] shadow-xl overflow-hidden rounded cursor-pointer">
-				<img src={math} alt="" className="h-[300px]" />
-				<div className="py-2 px-5">
-					{course.detailedName.length <= 16 ? (
-						<h3 className="text-2xl font-semibold">{course.detailedName}</h3>
-					) : (
-						<h3 className="text-2xl font-semibold">{course.code}</h3>
-					)}
-					<h4 className="text-lg">{course.promo}</h4>
-					<h5>S{course.semester}</h5>
-				</div>
-			</div>
-		);
+  if (mathematics.includes(course.code))
+    return (
+      <div
+        onClick={() => {
+          navigate(`/student/course/${course.code}`);
+        }}
+        className="h-[400px] w-[300px] bg-[#e4e4e4] shadow-xl overflow-hidden rounded cursor-pointer">
+        <img src={math} alt="" className="h-[300px]" />
+        <div className="py-2 px-5">
+          {course.detailedName.length <= 16 ? (
+            <h3 className="text-2xl font-semibold">{course.detailedName}</h3>
+          ) : (
+            <h3 className="text-2xl font-semibold">{course.code}</h3>
+          )}
+          <h4 className="text-lg">{course.promo}</h4>
+          <h5>S{course.semester}</h5>
+        </div>
+      </div>
+    );
 
-	if (architecture.includes(course.code))
-		return (
-			<div
-				onClick={() => {
-					navigate(`/student/course/${course.code}`);
-				}}
-				className="h-[400px] w-[300px] bg-[#e4e4e4] shadow-xl overflow-hidden rounded cursor-pointer">
-				<img src={archi} alt="" className="h-[300px]" />
-				<div className="py-2 px-5">
-					{course.detailedName.length <= 16 ? (
-						<h3 className="text-2xl font-semibold">{course.detailedName}</h3>
-					) : (
-						<h3 className="text-2xl font-semibold">{course.code}</h3>
-					)}
-					<h4 className="text-lg">{course.promo}</h4>
-					<h5>S{course.semester}</h5>
-				</div>
-			</div>
-		);
+  if (architecture.includes(course.code))
+    return (
+      <div
+        onClick={() => {
+          navigate(`/student/course/${course.code}`);
+        }}
+        className="h-[400px] w-[300px] bg-[#e4e4e4] shadow-xl overflow-hidden rounded cursor-pointer">
+        <img src={archi} alt="" className="h-[300px]" />
+        <div className="py-2 px-5">
+          {course.detailedName.length <= 16 ? (
+            <h3 className="text-2xl font-semibold">{course.detailedName}</h3>
+          ) : (
+            <h3 className="text-2xl font-semibold">{course.code}</h3>
+          )}
+          <h4 className="text-lg">{course.promo}</h4>
+          <h5>S{course.semester}</h5>
+        </div>
+      </div>
+    );
 
-	if (dbs.includes(course.code))
-		return (
-			<div
-				onClick={() => {
-					navigate(`/student/course/${course.code}`);
-				}}
-				className="h-[400px] w-[300px] bg-[#e4e4e4] shadow-xl overflow-hidden rounded cursor-pointer">
-				<img src={db} alt="" className="h-[300px]" />
-				<div className="py-2 px-5">
-					{course.detailedName.length <= 16 ? (
-						<h3 className="text-2xl font-semibold">{course.detailedName}</h3>
-					) : (
-						<h3 className="text-2xl font-semibold">{course.code}</h3>
-					)}
-					<h4 className="text-lg">{course.promo}</h4>
-					<h5>S{course.semester}</h5>
-				</div>
-			</div>
-		);
+  if (dbs.includes(course.code))
+    return (
+      <div
+        onClick={() => {
+          navigate(`/student/course/${course.code}`);
+        }}
+        className="h-[400px] w-[300px] bg-[#e4e4e4] shadow-xl overflow-hidden rounded cursor-pointer">
+        <img src={db} alt="" className="h-[300px]" />
+        <div className="py-2 px-5">
+          {course.detailedName.length <= 16 ? (
+            <h3 className="text-2xl font-semibold">{course.detailedName}</h3>
+          ) : (
+            <h3 className="text-2xl font-semibold">{course.code}</h3>
+          )}
+          <h4 className="text-lg">{course.promo}</h4>
+          <h5>S{course.semester}</h5>
+        </div>
+      </div>
+    );
 
-	if (economy.includes(course.code))
-		return (
-			<div
-				onClick={() => {
-					navigate(`/student/course/${course.code}`);
-				}}
-				className="h-[400px] w-[300px] bg-[#e4e4e4] shadow-xl overflow-hidden rounded cursor-pointer">
-				<img src={eco} alt="" className="h-[300px]" />
-				<div className="py-2 px-5">
-					{course.detailedName.length <= 16 ? (
-						<h3 className="text-2xl font-semibold">{course.detailedName}</h3>
-					) : (
-						<h3 className="text-2xl font-semibold">{course.code}</h3>
-					)}
-					<h4 className="text-lg">{course.promo}</h4>
-					<h5>S{course.semester}</h5>
-				</div>
-			</div>
-		);
+  if (economy.includes(course.code))
+    return (
+      <div
+        onClick={() => {
+          navigate(`/student/course/${course.code}`);
+        }}
+        className="h-[400px] w-[300px] bg-[#e4e4e4] shadow-xl overflow-hidden rounded cursor-pointer">
+        <img src={eco} alt="" className="h-[300px]" />
+        <div className="py-2 px-5">
+          {course.detailedName.length <= 16 ? (
+            <h3 className="text-2xl font-semibold">{course.detailedName}</h3>
+          ) : (
+            <h3 className="text-2xl font-semibold">{course.code}</h3>
+          )}
+          <h4 className="text-lg">{course.promo}</h4>
+          <h5>S{course.semester}</h5>
+        </div>
+      </div>
+    );
 
-	if (electric.includes(course.code))
-		return (
-			<div
-				onClick={() => {
-					navigate(`/student/course/${course.code}`);
-				}}
-				className="h-[400px] w-[300px] bg-[#e4e4e4] shadow-xl overflow-hidden rounded cursor-pointer">
-				<img src={elec} alt="" className="h-[300px]" />
-				<div className="py-2 px-5">
-					{course.detailedName.length <= 16 ? (
-						<h3 className="text-2xl font-semibold">{course.detailedName}</h3>
-					) : (
-						<h3 className="text-2xl font-semibold">{course.code}</h3>
-					)}
-					<h4 className="text-lg">{course.promo}</h4>
-					<h5>S{course.semester}</h5>
-				</div>
-			</div>
-		);
+  if (electric.includes(course.code))
+    return (
+      <div
+        onClick={() => {
+          navigate(`/student/course/${course.code}`);
+        }}
+        className="h-[400px] w-[300px] bg-[#e4e4e4] shadow-xl overflow-hidden rounded cursor-pointer">
+        <img src={elec} alt="" className="h-[300px]" />
+        <div className="py-2 px-5">
+          {course.detailedName.length <= 16 ? (
+            <h3 className="text-2xl font-semibold">{course.detailedName}</h3>
+          ) : (
+            <h3 className="text-2xl font-semibold">{course.code}</h3>
+          )}
+          <h4 className="text-lg">{course.promo}</h4>
+          <h5>S{course.semester}</h5>
+        </div>
+      </div>
+    );
 
-	if (languages.includes(course.code))
-		return (
-			<div
-				onClick={() => {
-					navigate(`/student/course/${course.code}`);
-				}}
-				className="h-[400px] w-[300px] bg-[#e4e4e4] shadow-xl overflow-hidden rounded cursor-pointer">
-				<img src={lang} alt="" className="h-[300px]" />
-				<div className="py-2 px-5">
-					{course.detailedName.length <= 16 ? (
-						<h3 className="text-2xl font-semibold">{course.detailedName}</h3>
-					) : (
-						<h3 className="text-2xl font-semibold">{course.code}</h3>
-					)}
-					<h4 className="text-lg">{course.promo}</h4>
-					<h5>S{course.semester}</h5>
-				</div>
-			</div>
-		);
+  if (languages.includes(course.code))
+    return (
+      <div
+        onClick={() => {
+          navigate(`/student/course/${course.code}`);
+        }}
+        className="h-[400px] w-[300px] bg-[#e4e4e4] shadow-xl overflow-hidden rounded cursor-pointer">
+        <img src={lang} alt="" className="h-[300px]" />
+        <div className="py-2 px-5">
+          {course.detailedName.length <= 16 ? (
+            <h3 className="text-2xl font-semibold">{course.detailedName}</h3>
+          ) : (
+            <h3 className="text-2xl font-semibold">{course.code}</h3>
+          )}
+          <h4 className="text-lg">{course.promo}</h4>
+          <h5>S{course.semester}</h5>
+        </div>
+      </div>
+    );
 
-	if (os.includes(course.code))
-		return (
-			<div
-				onClick={() => {
-					navigate(`/student/course/${course.code}`);
-				}}
-				className="h-[400px] w-[300px] bg-[#e4e4e4] shadow-xl overflow-hidden rounded cursor-pointer">
-				<img src={linux} alt="" className="h-[300px]" />
-				<div className="py-2 px-5">
-					{course.detailedName.length <= 16 ? (
-						<h3 className="text-2xl font-semibold">{course.detailedName}</h3>
-					) : (
-						<h3 className="text-2xl font-semibold">{course.code}</h3>
-					)}
-					<h4 className="text-lg">{course.promo}</h4>
-					<h5>S{course.semester}</h5>
-				</div>
-			</div>
-		);
+  if (os.includes(course.code))
+    return (
+      <div
+        onClick={() => {
+          navigate(`/student/course/${course.code}`);
+        }}
+        className="h-[400px] w-[300px] bg-[#e4e4e4] shadow-xl overflow-hidden rounded cursor-pointer">
+        <img src={linux} alt="" className="h-[300px]" />
+        <div className="py-2 px-5">
+          {course.detailedName.length <= 16 ? (
+            <h3 className="text-2xl font-semibold">{course.detailedName}</h3>
+          ) : (
+            <h3 className="text-2xl font-semibold">{course.code}</h3>
+          )}
+          <h4 className="text-lg">{course.promo}</h4>
+          <h5>S{course.semester}</h5>
+        </div>
+      </div>
+    );
 
-	if (netw.includes(course.code))
-		return (
-			<div
-				onClick={() => {
-					navigate(`/student/course/${course.code}`);
-				}}
-				className="h-[400px] w-[300px] bg-[#e4e4e4] shadow-xl overflow-hidden rounded cursor-pointer">
-				<img src={networking} alt="" className="h-[300px]" />
-				<div className="py-2 px-5">
-					{course.detailedName.length <= 16 ? (
-						<h3 className="text-2xl font-semibold">{course.detailedName}</h3>
-					) : (
-						<h3 className="text-2xl font-semibold">{course.code}</h3>
-					)}
-					<h4 className="text-lg">{course.promo}</h4>
-					<h5>S{course.semester}</h5>
-				</div>
-			</div>
-		);
+  if (netw.includes(course.code))
+    return (
+      <div
+        onClick={() => {
+          navigate(`/student/course/${course.code}`);
+        }}
+        className="h-[400px] w-[300px] bg-[#e4e4e4] shadow-xl overflow-hidden rounded cursor-pointer">
+        <img src={networking} alt="" className="h-[300px]" />
+        <div className="py-2 px-5">
+          {course.detailedName.length <= 16 ? (
+            <h3 className="text-2xl font-semibold">{course.detailedName}</h3>
+          ) : (
+            <h3 className="text-2xl font-semibold">{course.code}</h3>
+          )}
+          <h4 className="text-lg">{course.promo}</h4>
+          <h5>S{course.semester}</h5>
+        </div>
+      </div>
+    );
 
-	if (phys.includes(course.code))
-		return (
-			<div
-				onClick={() => {
-					navigate(`/student/course/${course.code}`);
-				}}
-				className="h-[400px] w-[300px] bg-[#e4e4e4] shadow-xl overflow-hidden rounded cursor-pointer">
-				<img src={physics} alt="" className="h-[300px]" />
-				<div className="py-2 px-5">
-					{course.detailedName.length <= 16 ? (
-						<h3 className="text-2xl font-semibold">{course.detailedName}</h3>
-					) : (
-						<h3 className="text-2xl font-semibold">{course.code}</h3>
-					)}
-					<h4 className="text-lg">{course.promo}</h4>
-					<h5>S{course.semester}</h5>
-				</div>
-			</div>
-		);
+  if (phys.includes(course.code))
+    return (
+      <div
+        onClick={() => {
+          navigate(`/student/course/${course.code}`);
+        }}
+        className="h-[400px] w-[300px] bg-[#e4e4e4] shadow-xl overflow-hidden rounded cursor-pointer">
+        <img src={physics} alt="" className="h-[300px]" />
+        <div className="py-2 px-5">
+          {course.detailedName.length <= 16 ? (
+            <h3 className="text-2xl font-semibold">{course.detailedName}</h3>
+          ) : (
+            <h3 className="text-2xl font-semibold">{course.code}</h3>
+          )}
+          <h4 className="text-lg">{course.promo}</h4>
+          <h5>S{course.semester}</h5>
+        </div>
+      </div>
+    );
 
-	if (prog.includes(course.code))
-		return (
-			<div
-				onClick={() => {
-					navigate(`/student/course/${course.code}`);
-				}}
-				className="h-[400px] w-[300px] bg-[#e4e4e4] shadow-xl overflow-hidden rounded cursor-pointer">
-				<img src={programming} alt="" className="h-[300px]" />
-				<div className="py-2 px-5">
-					{course.detailedName.length <= 16 ? (
-						<h3 className="text-2xl font-semibold">{course.detailedName}</h3>
-					) : (
-						<h3 className="text-2xl font-semibold">{course.code}</h3>
-					)}
-					<h4 className="text-lg">{course.promo}</h4>
-					<h5>S{course.semester}</h5>
-				</div>
-			</div>
-		);
+  if (prog.includes(course.code))
+    return (
+      <div
+        onClick={() => {
+          navigate(`/student/course/${course.code}`);
+        }}
+        className="h-[400px] w-[300px] bg-[#e4e4e4] shadow-xl overflow-hidden rounded cursor-pointer">
+        <img src={programming} alt="" className="h-[300px]" />
+        <div className="py-2 px-5">
+          {course.detailedName.length <= 16 ? (
+            <h3 className="text-2xl font-semibold">{course.detailedName}</h3>
+          ) : (
+            <h3 className="text-2xl font-semibold">{course.code}</h3>
+          )}
+          <h4 className="text-lg">{course.promo}</h4>
+          <h5>S{course.semester}</h5>
+        </div>
+      </div>
+    );
 
-	if (sec.includes(course.code))
-		return (
-			<div
-				onClick={() => {
-					navigate(`/student/course/${course.code}`);
-				}}
-				className="h-[400px] w-[300px] bg-[#e4e4e4] shadow-xl overflow-hidden rounded cursor-pointer">
-				<img src={security} alt="" className="h-[300px]" />
-				<div className="py-2 px-5">
-					{course.detailedName.length <= 16 ? (
-						<h3 className="text-2xl font-semibold">{course.detailedName}</h3>
-					) : (
-						<h3 className="text-2xl font-semibold">{course.code}</h3>
-					)}
-					<h4 className="text-lg">{course.promo}</h4>
-					<h5>S{course.semester}</h5>
-				</div>
-			</div>
-		);
+  if (sec.includes(course.code))
+    return (
+      <div
+        onClick={() => {
+          navigate(`/student/course/${course.code}`);
+        }}
+        className="h-[400px] w-[300px] bg-[#e4e4e4] shadow-xl overflow-hidden rounded cursor-pointer">
+        <img src={security} alt="" className="h-[300px]" />
+        <div className="py-2 px-5">
+          {course.detailedName.length <= 16 ? (
+            <h3 className="text-2xl font-semibold">{course.detailedName}</h3>
+          ) : (
+            <h3 className="text-2xl font-semibold">{course.code}</h3>
+          )}
+          <h4 className="text-lg">{course.promo}</h4>
+          <h5>S{course.semester}</h5>
+        </div>
+      </div>
+    );
 
-	if (statistics.includes(course.code))
-		return (
-			<div
-				onClick={() => {
-					navigate(`/student/course/${course.code}`);
-				}}
-				className="h-[400px] w-[300px] bg-[#e4e4e4] shadow-xl overflow-hidden rounded cursor-pointer">
-				<img src={stat} alt="" className="h-[300px]" />
-				<div className="py-2 px-5">
-					{course.detailedName.length <= 16 ? (
-						<h3 className="text-2xl font-semibold">{course.detailedName}</h3>
-					) : (
-						<h3 className="text-2xl font-semibold">{course.code}</h3>
-					)}
-					<h4 className="text-lg">{course.promo}</h4>
-					<h5>S{course.semester}</h5>
-				</div>
-			</div>
-		);
+  if (statistics.includes(course.code))
+    return (
+      <div
+        onClick={() => {
+          navigate(`/student/course/${course.code}`);
+        }}
+        className="h-[400px] w-[300px] bg-[#e4e4e4] shadow-xl overflow-hidden rounded cursor-pointer">
+        <img src={stat} alt="" className="h-[300px]" />
+        <div className="py-2 px-5">
+          {course.detailedName.length <= 16 ? (
+            <h3 className="text-2xl font-semibold">{course.detailedName}</h3>
+          ) : (
+            <h3 className="text-2xl font-semibold">{course.code}</h3>
+          )}
+          <h4 className="text-lg">{course.promo}</h4>
+          <h5>S{course.semester}</h5>
+        </div>
+      </div>
+    );
 
-	if (webdev.includes(course.code))
-		return (
-			<div
-				onClick={() => {
-					navigate(`/student/course/${course.code}`);
-				}}
-				className="h-[400px] w-[300px] bg-[#e4e4e4] shadow-xl overflow-hidden rounded cursor-pointer">
-				<img src={web} alt="" className="h-[300px]" />
-				<div className="py-2 px-5">
-					{course.detailedName.length <= 16 ? (
-						<h3 className="text-2xl font-semibold">{course.detailedName}</h3>
-					) : (
-						<h3 className="text-2xl font-semibold">{course.code}</h3>
-					)}
-					<h4 className="text-lg">{course.promo}</h4>
-					<h5>S{course.semester}</h5>
-				</div>
-			</div>
-		);
+  if (webdev.includes(course.code))
+    return (
+      <div
+        onClick={() => {
+          navigate(`/student/course/${course.code}`);
+        }}
+        className="h-[400px] w-[300px] bg-[#e4e4e4] shadow-xl overflow-hidden rounded cursor-pointer">
+        <img src={web} alt="" className="h-[300px]" />
+        <div className="py-2 px-5">
+          {course.detailedName.length <= 16 ? (
+            <h3 className="text-2xl font-semibold">{course.detailedName}</h3>
+          ) : (
+            <h3 className="text-2xl font-semibold">{course.code}</h3>
+          )}
+          <h4 className="text-lg">{course.promo}</h4>
+          <h5>S{course.semester}</h5>
+        </div>
+      </div>
+    );
 
-	return (
-		<div
-			onClick={() => {
-				navigate(`/student/course/${course.code}`);
-			}}
-			className="h-[400px] w-[300px] bg-[#e4e4e4] shadow-xl overflow-hidden rounded cursor-pointer">
-			<img src={placeholder} alt="" className="[300px]" />
-			<div className="py-2 px-5">
-				{course.detailedName.length <= 16 ? (
-					<h3 className="text-2xl font-semibold">{course.detailedName}</h3>
-				) : (
-					<h3 className="text-2xl font-semibold">{course.code}</h3>
-				)}
-				<h4 className="text-lg">{course.promo}</h4>
-				<h5>S{course.semester}</h5>
-			</div>
-		</div>
-	);
+  return (
+    <div
+      onClick={() => {
+        navigate(`/student/course/${course.code}`);
+      }}
+      className="h-[400px] w-[300px] bg-[#e4e4e4] shadow-xl overflow-hidden rounded cursor-pointer">
+      <img src={placeholder} alt="" className="[300px]" />
+      <div className="py-2 px-5">
+        {course.detailedName.length <= 16 ? (
+          <h3 className="text-2xl font-semibold">{course.detailedName}</h3>
+        ) : (
+          <h3 className="text-2xl font-semibold">{course.code}</h3>
+        )}
+        <h4 className="text-lg">{course.promo}</h4>
+        <h5>S{course.semester}</h5>
+      </div>
+    </div>
+  );
 }
 
 export default CoursesListItemStudent;

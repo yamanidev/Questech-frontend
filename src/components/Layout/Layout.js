@@ -5,17 +5,17 @@ import Box from "@mui/material/Box";
 import { Outlet } from "react-router-dom";
 
 function Layout() {
-	return (
-		<>
-			<Appbar />
-			<Box sx={{ display: "flex" }}>
-				<Sidebar />
-				<div className="pt-32 flex-grow">
-					<Outlet />
-				</div>
-			</Box>
-		</>
-	);
+  return (
+    <>
+      <Appbar />
+      <Box sx={{ display: "flex" }}>
+        <Sidebar />
+        <div className="pt-32 flex-grow">
+          <Outlet />
+        </div>
+      </Box>
+    </>
+  );
 }
 
 export default Layout;
