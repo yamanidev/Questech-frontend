@@ -7,8 +7,8 @@ import Stack from "@mui/material/Stack";
 import TextField from "@mui/material/TextField";
 import React, { useRef, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
-import addFileSVG from "../../../assets/add-file.svg";
-import teacherServices from "../../../services/teacher/teacher-services";
+import addFileSVG from "assets/add-file.svg";
+import teacherServices from "services/teacher/teacher-services";
 
 function AddFilePage() {
   const [title, setTitle] = useState("");

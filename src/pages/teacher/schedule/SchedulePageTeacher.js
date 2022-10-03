@@ -1,6 +1,6 @@
 import React from "react";
-import TeacherSchedule from "../../../components/teacher/TeacherSchedule/TeacherSchedule";
-import userService from "../../../services/user/user-service";
+import TeacherSchedule from "components/teacher/TeacherSchedule/TeacherSchedule";
+import userService from "services/user/user-service";
 
 function SchedulePageTeacher() {
   return (

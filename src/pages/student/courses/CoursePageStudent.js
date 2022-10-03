@@ -1,9 +1,9 @@
 import { Button } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import studentServices from "../../../services/student/student-services";
-import LoadingSpinner from "../../../components/LoadingSpinner/LoadingSpinner";
-import FilesListStudent from "../../../components/student/FilesList/FilesListStudent";
+import studentServices from "services/student/student-services";
+import LoadingSpinner from "components/LoadingSpinner/LoadingSpinner";
+import FilesListStudent from "components/student/FilesList/FilesListStudent";
 
 function CoursePageStudent() {
   const [lessonFiles, setLessonFiles] = useState({});

@@ -5,8 +5,8 @@ import Modal from "@mui/material/Modal";
 import { DataGrid, GridActionsCellItem } from "@mui/x-data-grid";
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import adminServices from "../../../services/admin/admin-services";
-import LoadingSpinner from "../../LoadingSpinner/LoadingSpinner";
+import adminServices from "services/admin/admin-services";
+import LoadingSpinner from "components/LoadingSpinner/LoadingSpinner";
 import "./students-table.css";
 import StudentsToolbar from "./StudentsToolbar";
 

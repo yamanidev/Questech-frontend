@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useCallback } from "react";
-import LoadingSpinner from "../../LoadingSpinner/LoadingSpinner";
+import LoadingSpinner from "components/LoadingSpinner/LoadingSpinner";
 import { Button, Stack, Typography } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import Modal from "@mui/material/Modal";
 import { DataGrid, GridActionsCellItem } from "@mui/x-data-grid";
-import adminServices from "../../../services/admin/admin-services";
+import adminServices from "services/admin/admin-services";
 import DeleteIcon from "@mui/icons-material/Delete";
 import GroupStudentsToolbar from "./GroupStudentsToolbar";
 

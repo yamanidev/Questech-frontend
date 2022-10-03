@@ -1,9 +1,9 @@
 import React from "react";
-import userService from "../../services/user/user-service";
-import CoursesPageAdmin from "../admin/courses/CoursesPageAdmin";
-import CoursesPageStudent from "../student/courses/CoursesPageStudent";
-import CoursesPageTeacher from "../teacher/courses/CoursesPageTeacher";
-import Unauthorized from "../Unauthorized/Unauthorized";
+import userService from "services/user/user-service";
+import CoursesPageAdmin from "pages/admin/courses/CoursesPageAdmin";
+import CoursesPageStudent from "pages/student/courses/CoursesPageStudent";
+import CoursesPageTeacher from "pages/teacher/courses/CoursesPageTeacher";
+import Unauthorized from "pages/Unauthorized/Unauthorized";
 
 function CoursesPage() {
   const currentUserRole = userService.getUser().role;

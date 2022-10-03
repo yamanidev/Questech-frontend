@@ -3,7 +3,7 @@ import FileDownloadIcon from "@mui/icons-material/FileDownload";
 import { Button, IconButton, Stack, Typography } from "@mui/material";
 import Modal from "@mui/material/Modal";
 import React, { useState } from "react";
-import teacherServices from "../../../services/teacher/teacher-services";
+import teacherServices from "services/teacher/teacher-services";
 
 function FileListItem(props) {
   const { file, onConfirmDelete } = props;

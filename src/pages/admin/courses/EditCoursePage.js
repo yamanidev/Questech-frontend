@@ -7,10 +7,10 @@ import Stack from "@mui/material/Stack";
 import TextField from "@mui/material/TextField";
 import React, { useState, useCallback, useEffect } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
-import courseSVG from "../../../assets/course.svg";
-import { validateName, validateInteger } from "../../../utilities/input-validation";
-import adminServices from "../../../services/admin/admin-services";
-import LoadingSpinner from "../../../components/LoadingSpinner/LoadingSpinner";
+import courseSVG from "assets/course.svg";
+import { validateName, validateInteger } from "utilities/input-validation";
+import adminServices from "services/admin/admin-services";
+import LoadingSpinner from "components/LoadingSpinner/LoadingSpinner";
 
 function EditCoursePage() {
   const [codeName, setCodeName] = useState("");

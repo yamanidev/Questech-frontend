@@ -6,14 +6,10 @@ import { DesktopDatePicker } from "@mui/x-date-pickers/DesktopDatePicker";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import React, { useCallback, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import adminServices from "../../../../services/admin/admin-services";
-import { formatDate } from "../../../../utilities/date-utils";
-import {
-  validateEmail,
-  validateName,
-  validatePhoneNumber,
-} from "../../../../utilities/input-validation";
-import teacherSVG from "../../../../assets/teacher.svg";
+import adminServices from "services/admin/admin-services";
+import { formatDate } from "utilities/date-utils";
+import { validateEmail, validateName, validatePhoneNumber } from "utilities/input-validation";
+import teacherSVG from "assets/teacher.svg";
 
 function AddTeacherPage() {
   const [datePickerDate, setDatePickerDate] = useState(new Date("1970-01-01"));

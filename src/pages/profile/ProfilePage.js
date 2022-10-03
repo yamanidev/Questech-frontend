@@ -1,6 +1,6 @@
 import React from "react";
-import userService from "../../services/user/user-service";
-import userProfilePlaceholder from "../../assets/user-profile-placeholder.svg";
+import userService from "services/user/user-service";
+import userProfilePlaceholder from "assets/user-profile-placeholder.svg";
 
 function ProfilePage() {
   const user = userService.getUser();

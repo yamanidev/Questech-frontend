@@ -1,9 +1,9 @@
 import React from "react";
-import userService from "../../services/user/user-service";
-import Unauthorized from "../Unauthorized/Unauthorized";
-import SchedulePageAdmin from "../admin/schedule/SchedulePageAdmin";
-import SchedulePageStudent from "../student/schedule/SchedulePageStudent";
-import SchedulePageTeacher from "../teacher/schedule/SchedulePageTeacher";
+import userService from "services/user/user-service";
+import Unauthorized from "pages/Unauthorized/Unauthorized";
+import SchedulePageAdmin from "pages/admin/schedule/SchedulePageAdmin";
+import SchedulePageStudent from "pages/student/schedule/SchedulePageStudent";
+import SchedulePageTeacher from "pages/teacher/schedule/SchedulePageTeacher";
 
 function SchedulePage() {
   const currentUserRole = userService.getUser().role;

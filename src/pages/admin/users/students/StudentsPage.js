@@ -1,5 +1,5 @@
 import React from "react";
-import StudentsTable from "../../../../components/admin/StudentsTable/StudentsTable";
+import StudentsTable from "components/admin/StudentsTable/StudentsTable";
 
 function StudentsPage() {
   return (

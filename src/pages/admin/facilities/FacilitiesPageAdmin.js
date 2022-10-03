@@ -1,5 +1,5 @@
 import React from "react";
-import FacilitiesTable from "../../../components/admin/FacilitiesTable/FacilitiesTable";
+import FacilitiesTable from "components/admin/FacilitiesTable/FacilitiesTable";
 
 function FacilitiesPageAdmin() {
   return (

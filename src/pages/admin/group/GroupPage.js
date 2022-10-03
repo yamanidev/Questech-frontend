@@ -1,6 +1,6 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import GroupStudentsTable from "../../../components/admin/GroupStudentsTable/GroupStudentsTable";
+import GroupStudentsTable from "components/admin/GroupStudentsTable/GroupStudentsTable";
 
 function GroupPage() {
   const { groupId, level } = useParams();

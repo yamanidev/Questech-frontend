@@ -7,8 +7,8 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
-import authService from "../../services/auth/auth-service";
-import logo from "../../assets/logo.png";
+import authService from "services/auth/auth-service";
+import logo from "assets/logo.png";
 
 function Appbar() {
   const navigate = useNavigate();

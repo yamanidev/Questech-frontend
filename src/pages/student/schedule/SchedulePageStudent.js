@@ -1,6 +1,6 @@
 import React from "react";
-import userService from "../../../services/user/user-service";
-import StudentSchedule from "../../../components/student/StudentSchedule/StudentSchedule";
+import userService from "services/user/user-service";
+import StudentSchedule from "components/student/StudentSchedule/StudentSchedule";
 
 function SchedulePageStudent() {
   return (
