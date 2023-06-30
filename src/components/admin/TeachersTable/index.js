@@ -219,7 +219,7 @@ function TeachersTable() {
                 type="file"
                 name="file_upload"
                 accept=".xlsx"
-                id="upload-button"
+                className="inline-block my-8 text-center"
                 onChange={onFileChange}
               />
               <Stack direction="row" justifyContent="center" spacing={2} marginTop={5}>

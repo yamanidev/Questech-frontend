@@ -208,7 +208,7 @@ function StudentsTable() {
               setImportModalOpened(false);
               setExcelFileSelected(false);
             }}>
-            <div className="modal-container">
+            <div className="p-8 bg-white top-1/2 left-1/2 absolute -translate-x-1/2 -translate-y-1/2 rounded-lg w-[25rem] h-[25rem]">
               <Typography
                 variant="h4"
                 sx={{ fontWeight: "900", textAlign: "center", marginBottom: "4rem" }}>
@@ -221,7 +221,7 @@ function StudentsTable() {
                 type="file"
                 name="file_upload"
                 accept=".xlsx"
-                id="upload-button"
+                className="inline-block my-8 text-center"
                 onChange={onFileChange}
               />
               <Stack direction="row" justifyContent="center" spacing={2} marginTop={5}>

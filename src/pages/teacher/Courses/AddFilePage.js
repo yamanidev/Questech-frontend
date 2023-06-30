@@ -74,7 +74,12 @@ function AddFilePage() {
             </FormControl>
           </div>
           <div className="max-w-md">
-            <input type="file" name="file_upload" id="upload-button" onChange={onFileChange} />
+            <input
+              type="file"
+              name="file_upload"
+              className="inline-block my-8 text-center"
+              onChange={onFileChange}
+            />
           </div>
           <Stack spacing={2} direction="row" marginTop={5}>
             <Button
