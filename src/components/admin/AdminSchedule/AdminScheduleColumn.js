@@ -109,7 +109,7 @@ function AdminScheduleColumn(props) {
         onClose={() => {
           setAddModalOpened(false);
         }}>
-        <div className="absolute top-1/2 bottom-1/2 bg-white rounded-lg p-8 -translate-x-1/2 -translate-y-1/2">
+        <div className="absolute top-1/2 left-1/2 bg-white rounded-lg p-8 h-[400px] -translate-x-1/2 -translate-y-1/2">
           <Typography
             variant="h4"
             sx={{ fontWeight: "900", textAlign: "center", marginBottom: "4rem" }}>
@@ -130,7 +130,7 @@ function AdminScheduleColumn(props) {
                   <MenuItem value="TP">TP</MenuItem>
                 </Select>
               </FormControl>
-              <FormControl sx={{ flexGrow: "1" }}>
+              <FormControl sx={{ flexGrow: "1", minWidth: "200px" }}>
                 <InputLabel>Course</InputLabel>
                 <Select
                   value={course}
