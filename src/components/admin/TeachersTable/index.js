@@ -7,7 +7,6 @@ import React, { useCallback, useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import adminServices from "~/services/admin/admin-services";
 import LoadingSpinner from "~/components/LoadingSpinner";
-import "./teachers-table.css";
 import TeachersToolbar from "./TeachersToolbar";
 
 function TeachersTable() {
