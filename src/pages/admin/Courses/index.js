@@ -1,5 +1,5 @@
 import React from "react";
-import CoursesTable from "components/admin/CoursesTable";
+import CoursesTable from "~/components/admin/CoursesTable";
 
 function CoursesPageAdmin() {
   return (

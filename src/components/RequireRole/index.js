@@ -1,7 +1,7 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
-import userService from "services/user/user-service";
-import Unauthorized from "pages/Unauthorized";
+import userService from "~/services/user/user-service";
+import Unauthorized from "~/pages/Unauthorized";
 
 function RequireRole(props) {
   const currentUser = userService.getUser();

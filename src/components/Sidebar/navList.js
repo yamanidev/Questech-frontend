@@ -5,7 +5,7 @@ import GroupIcon from "@mui/icons-material/Group";
 import MenuBookIcon from "@mui/icons-material/MenuBook";
 import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 import AnnouncementIcon from "@mui/icons-material/Announcement";
-import userService from "services/user/user-service";
+import userService from "~/services/user/user-service";
 
 const user = userService.getUser();
 const navList = [];

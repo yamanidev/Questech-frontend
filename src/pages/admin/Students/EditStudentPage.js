@@ -10,11 +10,11 @@ import { DesktopDatePicker } from "@mui/x-date-pickers/DesktopDatePicker";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
-import studentSVG from "assets/student.svg";
-import LoadingSpinner from "components/LoadingSpinner";
-import adminServices from "services/admin/admin-services";
-import { formatDate } from "utilities/date-utils";
-import { validateEmail, validateName } from "utilities/input-validation";
+import studentSVG from "~/assets/student.svg";
+import LoadingSpinner from "~/components/LoadingSpinner";
+import adminServices from "~/services/admin/admin-services";
+import { formatDate } from "~/utilities/date-utils";
+import { validateEmail, validateName } from "~/utilities/input-validation";
 
 function EditStudentPage() {
   const [datePickerDate, setDatePickerDate] = useState(new Date("2005-01-01"));

@@ -1,8 +1,8 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
-import Layout from "./components/Layout";
-import RequireAuth from "./components/RequireAuth";
-import RequireRole from "./components/RequireRole";
+import Layout from "~/components/Layout";
+import RequireAuth from "~/components/RequireAuth";
+import RequireRole from "~/components/RequireRole";
 import GroupsPage from "./pages/admin/Groups";
 import AddStudentPage from "./pages/admin/Students/AddStudentPage";
 import EditStudentPage from "./pages/admin/Students/EditStudentPage";

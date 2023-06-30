@@ -1,9 +1,9 @@
 import React from "react";
 import { Navigate } from "react-router-dom";
-import LoginForm from "components/LoginForm";
-import authService from "services/auth/auth-service";
+import LoginForm from "~/components/LoginForm";
+import authService from "~/services/auth/auth-service";
 import "./loginPage.css";
-import login from "assets/login.svg";
+import login from "~/assets/login.svg";
 
 function LoginPage() {
   if (authService.isAuthn()) {

@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import studentServices from "services/student/student-services";
-import userService from "services/user/user-service";
-import CoursesList from "components/student/CoursesList";
-import LoadingSpinner from "components/LoadingSpinner";
+import studentServices from "~/services/student/student-services";
+import userService from "~/services/user/user-service";
+import CoursesList from "~/components/student/CoursesList";
+import LoadingSpinner from "~/components/LoadingSpinner";
 
 function CoursesPageStudent() {
   const [courses, setCourses] = useState({});

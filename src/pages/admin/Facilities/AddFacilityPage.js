@@ -7,8 +7,8 @@ import Stack from "@mui/material/Stack";
 import TextField from "@mui/material/TextField";
 import React, { useCallback, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import facilitiesSVG from "assets/facilities.svg";
-import adminServices from "services/admin/admin-services";
+import facilitiesSVG from "~/assets/facilities.svg";
+import adminServices from "~/services/admin/admin-services";
 
 function AddFacilityPage() {
   const [facilityName, setFacilityName] = useState("");

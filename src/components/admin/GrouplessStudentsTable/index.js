@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import LoadingSpinner from "components/LoadingSpinner";
-import adminServices from "services/admin/admin-services";
+import LoadingSpinner from "~/components/LoadingSpinner";
+import adminServices from "~/services/admin/admin-services";
 import { DataGrid } from "@mui/x-data-grid";
 import GrouplessStudentsToolbar from "./GrouplessStudentsToolbar";
 import { useNavigate } from "react-router-dom";

@@ -1,6 +1,6 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import GrouplessStudentsTable from "components/admin/GrouplessStudentsTable";
+import GrouplessStudentsTable from "~/components/admin/GrouplessStudentsTable";
 
 function AddGroupStudentsPage() {
   const { level, groupId } = useParams();

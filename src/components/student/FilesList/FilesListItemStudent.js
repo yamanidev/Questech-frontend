@@ -1,5 +1,5 @@
 import React from "react";
-import studentServices from "services/student/student-services";
+import studentServices from "~/services/student/student-services";
 import FileDownloadIcon from "@mui/icons-material/FileDownload";
 
 function FilesListItemStudent(props) {

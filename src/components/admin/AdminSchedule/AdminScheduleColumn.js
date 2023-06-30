@@ -5,7 +5,7 @@ import MenuItem from "@mui/material/MenuItem";
 import Modal from "@mui/material/Modal";
 import Select from "@mui/material/Select";
 import React, { useState } from "react";
-import adminServices from "services/admin/admin-services";
+import adminServices from "~/services/admin/admin-services";
 import "./modal.css";
 import ScheduleTimeSlot from "./ScheduleTimeSlot";
 

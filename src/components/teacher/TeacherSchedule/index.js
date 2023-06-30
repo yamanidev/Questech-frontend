@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import teacherServices from "services/teacher/teacher-services";
-import TimeColumn from "components/TimeColumn";
+import teacherServices from "~/services/teacher/teacher-services";
+import TimeColumn from "~/components/TimeColumn";
 import TeacherScheduleColumn from "./TeacherScheduleColumn";
 
 function TeacherSchedule(props) {

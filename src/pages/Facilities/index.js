@@ -1,8 +1,8 @@
 import React from "react";
-import Unauthorized from "pages/Unauthorized";
-import userService from "services/user/user-service";
-import FacilitiesPageAdmin from "pages/admin/Facilities";
-import FacilitiesPageTeacher from "pages/teacher/Facilities";
+import Unauthorized from "~/pages/Unauthorized";
+import userService from "~/services/user/user-service";
+import FacilitiesPageAdmin from "~/pages/admin/Facilities";
+import FacilitiesPageTeacher from "~/pages/teacher/Facilities";
 
 function FacilitiesPage() {
   const currentUserRole = userService.getUser().role;

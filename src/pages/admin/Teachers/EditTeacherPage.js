@@ -4,12 +4,12 @@ import TextField from "@mui/material/TextField";
 import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
 import { DesktopDatePicker } from "@mui/x-date-pickers/DesktopDatePicker";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
-import LoadingSpinner from "components/LoadingSpinner";
+import LoadingSpinner from "~/components/LoadingSpinner";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
-import teacherSVG from "assets/teacher.svg";
-import adminServices from "services/admin/admin-services";
-import { validateEmail, validateName, validatePhoneNumber } from "utilities/input-validation";
+import teacherSVG from "~/assets/teacher.svg";
+import adminServices from "~/services/admin/admin-services";
+import { validateEmail, validateName, validatePhoneNumber } from "~/utilities/input-validation";
 
 function EditTeacherPage() {
   const [datePickerDate, setDatePickerDate] = useState(new Date("1970-01-01"));

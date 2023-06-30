@@ -7,9 +7,9 @@ import Stack from "@mui/material/Stack";
 import TextField from "@mui/material/TextField";
 import React, { useCallback, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import courseSVG from "assets/course.svg";
-import adminServices from "services/admin/admin-services";
-import { validateInteger } from "utilities/input-validation";
+import courseSVG from "~/assets/course.svg";
+import adminServices from "~/services/admin/admin-services";
+import { validateInteger } from "~/utilities/input-validation";
 
 function AddCoursePage() {
   const [codeName, setCodeName] = useState("");

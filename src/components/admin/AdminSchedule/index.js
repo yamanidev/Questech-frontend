@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import adminServices from "services/admin/admin-services";
+import adminServices from "~/services/admin/admin-services";
 import AdminScheduleColumn from "./AdminScheduleColumn";
-import TimeColumn from "components/TimeColumn";
+import TimeColumn from "~/components/TimeColumn";
 
 function AdminSchedule(props) {
   const { level, groupId } = props;

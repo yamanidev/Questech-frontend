@@ -1,5 +1,5 @@
 import React from "react";
-import error404 from "assets/404-error.svg";
+import error404 from "~/assets/404-error.svg";
 
 function NoMatchPage() {
   return (

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import teacherServices from "services/teacher/teacher-services";
+import teacherServices from "~/services/teacher/teacher-services";
 import { DataGrid } from "@mui/x-data-grid";
-import LoadingSpinner from "components/LoadingSpinner";
+import LoadingSpinner from "~/components/LoadingSpinner";
 
 function AvailableFacilitiesTable(props) {
   const { day, time } = props;
