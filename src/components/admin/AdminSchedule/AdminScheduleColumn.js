@@ -6,7 +6,6 @@ import Modal from "@mui/material/Modal";
 import Select from "@mui/material/Select";
 import React, { useState } from "react";
 import adminServices from "~/services/admin/admin-services";
-import "./modal.css";
 import ScheduleTimeSlot from "./ScheduleTimeSlot";
 
 function AdminScheduleColumn(props) {
