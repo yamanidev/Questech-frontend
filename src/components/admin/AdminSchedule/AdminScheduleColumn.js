@@ -110,7 +110,7 @@ function AdminScheduleColumn(props) {
         onClose={() => {
           setAddModalOpened(false);
         }}>
-        <div className="modal-container">
+        <div className="absolute top-1/2 bottom-1/2 bg-white rounded-lg p-8 -translate-x-1/2 -translate-y-1/2">
           <Typography
             variant="h4"
             sx={{ fontWeight: "900", textAlign: "center", marginBottom: "4rem" }}>
