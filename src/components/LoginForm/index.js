@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import authService from "~/services/auth/auth-service";
-import "./LoginForm.css";
 
 function LoginForm() {
   const navigate = useNavigate();
@@ -52,7 +51,7 @@ function LoginForm() {
               }}
               type="email"
               id="email"
-              className="form-input"
+              className="w-full h-14 px-5 block text-[#333333] rounded-lg bg-[#ededed] focus:outline-0 focus:border-0"
               required
             />
           </div>
@@ -72,7 +71,7 @@ function LoginForm() {
               }}
               type="password"
               id="password"
-              className="form-input"
+              className="w-full h-14 px-5 block text-[#333333] rounded-lg bg-[#ededed] focus:outline-0 focus:border-0"
               required
             />
           </div>
