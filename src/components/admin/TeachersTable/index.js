@@ -206,7 +206,7 @@ function TeachersTable() {
               setImportModalOpened(false);
               setExcelFileSelected(false);
             }}>
-            <div className="modal-container">
+            <div className="w-[25rem] h-[25rem] p-8 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white rounded-lg">
               <Typography
                 variant="h4"
                 sx={{ fontWeight: "900", textAlign: "center", marginBottom: "4rem" }}>
@@ -244,7 +244,7 @@ function TeachersTable() {
             onClose={() => {
               setDeleteModalOpened(false);
             }}>
-            <div className="modal-container">
+            <div className="w-[25rem] h-[25rem] p-8 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white rounded-lg">
               <Stack height="100%">
                 <Typography
                   variant="h4"
