@@ -170,7 +170,7 @@ function CoursesTable() {
                 <Typography
                   variant="h4"
                   sx={{ fontWeight: "900", textAlign: "center", marginBottom: "4rem" }}>
-                  Delete Student
+                  Delete Course
                 </Typography>
                 <Typography variant="subtitle1" sx={{ fontSize: "1.2rem", textAlign: "center" }}>
                   {selectionModel.length > 1
