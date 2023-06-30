@@ -109,7 +109,7 @@ function AdminScheduleColumn(props) {
         onClose={() => {
           setAddModalOpened(false);
         }}>
-        <div className="absolute top-1/2 left-1/2 bg-white rounded-lg p-8 h-[400px] -translate-x-1/2 -translate-y-1/2">
+        <div className="absolute top-1/2 left-1/2 bg-white rounded-lg p-8 h-[500px] -translate-x-1/2 -translate-y-1/2">
           <Typography
             variant="h4"
             sx={{ fontWeight: "900", textAlign: "center", marginBottom: "4rem" }}>
@@ -240,7 +240,7 @@ function AdminScheduleColumn(props) {
         onClose={() => {
           setClearModalOpened(false);
         }}>
-        <div className="modal-container">
+        <div className="w-[25rem] h-[25rem] p-8 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white rounded-lg">
           <Stack height="100%">
             <Typography
               variant="h4"
