@@ -21,14 +21,12 @@
     "react-dom": "^17.0.2",
     "react-icons": "^4.3.1",
     "react-router-dom": "^6.2.2",
-    "react-scripts": "5.0.0",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
+    "start": "vite",
+    "build": "vite build",
+    "serve": "vite preview",
     "prettify": "prettier --write ."
   },
   "eslintConfig": {
@@ -50,8 +48,10 @@
     ]
   },
   "devDependencies": {
+    "@vitejs/plugin-react": "^4.0.1",
     "autoprefixer": "^10.4.2",
     "postcss": "^8.4.7",
-    "tailwindcss": "^3.0.23"
+    "tailwindcss": "^3.0.23",
+    "vite": "^4.3.9"
   }
 }
